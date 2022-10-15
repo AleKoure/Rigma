@@ -1,2 +1,3 @@
 # Rigma
-R client to Figma API
+
+Client to Figma API
