@@ -49,7 +49,14 @@
 #' @importFrom checkmate assert_string assert_integer
 #'
 #' @importFrom lubridate as_datetime
-#
+#'
+#' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
+#' \donttest{
+#' #navigate to  file and get key from url
+#' file_key <- "sFHgQh9dL6369o5wrZHmdR"
+#' get_file_nodes(file_key, ids = "0:0")
+#' }
+#'
 #' @export
 get_file_nodes <- function(
     file_key,
