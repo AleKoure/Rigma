@@ -10,6 +10,8 @@
 #' responsible. Whether or not the render was successful, it is assured that
 #' any node that was requested for rendering will be represented in this map.
 #'
+#' @param file_key string. The key that a Figma file is referred by.
+#'
 #' @param ids string. A comma separated list of node IDs to render
 #'
 #' @param scale numeric. The image scaling factor is a number between 0.01 and
@@ -31,6 +33,14 @@
 #'
 #' @param version string. A specific version ID to use. Omitting this will use
 #' the current version of the file
+#'
+#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
+#' req_perform resp_body_json req_url_query req_error
+#'
+#' @importFrom  checkmate assert_string assert_integer assert_logical
+#' assert_numeric
+#'
+#' @importFrom purrr chuck
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
 #' \donttest{

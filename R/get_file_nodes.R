@@ -1,3 +1,5 @@
+#' GET file nodes
+#'
 #' @description  Returns a JSON object containing the nodes referenced by
 #' `:ids`. The Figma file referred to by `:key` is where the nodes are located.
 #' The node Id and file key can be parsed from any Figma node url:
@@ -82,7 +84,7 @@ get_file_nodes <- function(
     plugin_data = plugin_data
   )
 
-  request("https://api.figma.com/v1/files") %>%
+  resp <- request("https://api.figma.com/v1/files") %>%
     req_url_path_append(file_key) %>%
     req_url_path_append("nodes") %>%
     req_headers(`X-Figma-Token` = Sys.getenv("FIGMA_ACCESS_TOKEN")) %>%

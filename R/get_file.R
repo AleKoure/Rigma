@@ -35,6 +35,7 @@
 #' req_perform resp_body_json req_url_query
 #'
 #' @importFrom checkmate assert_string assert_integer assert_logical
+#' expect_number
 #'
 #' @importFrom lubridate as_datetime
 #'
