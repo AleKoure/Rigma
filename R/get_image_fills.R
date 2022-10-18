@@ -27,9 +27,7 @@
 #' }
 #'
 #' @export
-get_image_fills <- function(
-    file_key
-) {
+get_image_fills <- function(file_key) {
   assert_string(file_key)
 
   resp <- request("https://api.figma.com/v1/files/") %>%
