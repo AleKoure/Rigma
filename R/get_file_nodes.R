@@ -76,7 +76,6 @@ get_file_nodes <- function(
   assert_string(plugin_data, null.ok = TRUE)
 
   params <- list(
-    file_key = file_key,
     version = version,
     ids = ids,
     depth = depth,
