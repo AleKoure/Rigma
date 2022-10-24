@@ -43,5 +43,12 @@ delete_comment <- function(
     req_perform() %>%
     resp_body_json()
 
-  !(resp %>% chuck("error"))
+  structure(
+    list(
+      error = resp %>% chuck("error"),
+      status = resp %>% chuck("status"),
+      i18n = resp %>% chuck("i18n")
+    ),
+    class = "rigma_delete_comment"
+  )
 }
