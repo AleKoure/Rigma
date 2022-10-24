@@ -1,4 +1,4 @@
-#' GET comments
+#' POST comments
 #'
 #' @description Posts a new comment on the file.
 #'
