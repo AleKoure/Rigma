@@ -1,4 +1,4 @@
-#' POST comments
+#' POST comment
 #'
 #' @description Posts a new comment on the file.
 #'
@@ -13,7 +13,7 @@
 #' @param client_meta string. The position of where to place the comment.
 #'
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query req_body_form
+#' req_perform resp_body_json req_url_query req_body_form req_body_json
 #'
 #' @importFrom checkmate assert_string assert_list
 #'

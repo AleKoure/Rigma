@@ -2,7 +2,7 @@
 % Please edit documentation in R/post_comment.R
 \name{post_comment}
 \alias{post_comment}
-\title{GET comments}
+\title{POST comment}
 \usage{
 post_comment(file_key, message, comment_id = NULL, client_meta)
 }
