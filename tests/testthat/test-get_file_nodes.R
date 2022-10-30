@@ -3,7 +3,7 @@ test_that("GET file nodes client is OK!", {
   file_key <- "sFHgQh9dL6369o5wrZHmdR"
   resp <- get_file_nodes(file_key, ids = "0:0")
   expect_s3_class(resp, "rigma_get_file_nodes")
-  expect_identical(
+  expect_setequal(
     names(resp),
     c("nodes", "metadata")
   )

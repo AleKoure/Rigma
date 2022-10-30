@@ -7,7 +7,7 @@ test_that("POST comment is OK!", {
     client_meta = list(x = 2, y = 2)
   )
   expect_s3_class(resp, "rigma_post_comment")
-  expect_identical(
+  expect_setequal(
     names(resp),
     c("id", "file_key", "parent_id", "user", "created_at", "resolved_at",
       "message", "reactions", "client_meta", "order_id" )

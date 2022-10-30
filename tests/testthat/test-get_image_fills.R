@@ -7,7 +7,7 @@ test_that("GET image fills client is OK!", {
   expect_equal(resp$status, 200)
   expect_type(resp$meta, "list")
   expect_null(resp$i18n)
-  expect_identical(
+  expect_setequal(
     names(resp),
     c("error", "status", "meta", "i18n")
   )

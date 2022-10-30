@@ -3,7 +3,7 @@ test_that("GET file client is OK!", {
   file_key <- "sFHgQh9dL6369o5wrZHmdR"
   resp <- get_file(file_key)
   expect_s3_class(resp, "rigma_get_file")
-  expect_identical(
+  expect_setequal(
     names(resp),
     c("document", "components", "componentSets", "styles", "metadata")
   )

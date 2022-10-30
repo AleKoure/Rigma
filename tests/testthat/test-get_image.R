@@ -8,7 +8,7 @@ test_that("GET image client is OK!", {
   expect_s3_class(conn, "url")
   expect_s3_class(xml_svg, "xml_document")
   expect_equal(names(xml2::as_list(xml_svg)), "svg")
-  expect_identical(
+  expect_setequal(
     names(resp),
     c("err", "images")
   )
