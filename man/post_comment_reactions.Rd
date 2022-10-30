@@ -24,7 +24,8 @@ Posts a new comment reaction on a file comment.
 \donttest{
 #navigate to  file and get key from url
 file_key <- "sFHgQh9dL6369o5wrZHmdR"
-get_comments(file_key)
+first_comment_id <- get_comments(file_key)$comments[[1]]$id
+post_comment_reactions(file_key, first_comment_id, ":eyes:")
 }
 \dontshow{\}) # examplesIf}
 }

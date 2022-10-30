@@ -2,6 +2,7 @@
 
 export("%>%")
 export(delete_comment)
+export(delete_comment_reactions)
 export(get_comments)
 export(get_comments_reactions)
 export(get_file)
