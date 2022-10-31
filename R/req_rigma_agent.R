@@ -37,6 +37,7 @@ req_rigma_agent <- function(
     req_user_agent(user_agent) %>%
     req_retry(
       is_transient = ~ resp_status(.x) %in% c(429, 500),
-      backoff = ~ 20
+      backoff = ~ 20,
+      max_tries = 3
     )
 }
