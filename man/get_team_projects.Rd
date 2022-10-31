@@ -21,8 +21,8 @@ team page of the team you are a part of to get your team ID. After the term
 \dontshow{if (Sys.getenv("FIGMA_ACCESS_TOKEN") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 #navigate to  file and get key from url
-file_key <- "sFHgQh9dL6369o5wrZHmdR"
-get_comments(file_key)
+team_id <- "1168610438838663284"
+get_team_projects(team_id)
 }
 \dontshow{\}) # examplesIf}
 }

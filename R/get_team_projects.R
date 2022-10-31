@@ -12,13 +12,13 @@
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query
 #'
-#' @importFrom checkmate assert_string assert_integer assert_logical expect_list
+#' @importFrom checkmate assert_string
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
 #' \donttest{
 #' #navigate to  file and get key from url
-#' file_key <- "sFHgQh9dL6369o5wrZHmdR"
-#' get_comments(file_key)
+#' team_id <- "1168610438838663284"
+#' get_team_projects(team_id)
 #' }
 #'
 #' @export
