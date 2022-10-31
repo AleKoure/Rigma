@@ -33,8 +33,6 @@ get_project_files <- function(project_id, branch_data = "false") {
   resp <- request("https://api.figma.com/v1/projects/") %>%
     req_url_path_append(project_id) %>%
     req_url_path_append("files") %>%
-    req_headers(`X-Figma-Token` = Sys.getenv("FIGMA_ACCESS_TOKEN")) %>%
-    req_user_agent("Rigma (http://my.rigma)") %>%
     req_url_query(!!!params) %>%
     req_error(body = function(resp) {
       resp %>%
@@ -42,6 +40,7 @@ get_project_files <- function(project_id, branch_data = "false") {
         xml2::xml_find_all("//body/pre") %>%
         xml2::xml_text()
     }) %>%
+    req_rigma_agent %>%
     req_perform() %>%
     resp_body_json()
 

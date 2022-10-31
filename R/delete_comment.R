@@ -32,14 +32,13 @@ delete_comment <- function(
     req_url_path_append(file_key) %>%
     req_url_path_append("comments") %>%
     req_url_path_append(comment_id) %>%
-    req_headers(`X-Figma-Token` = Sys.getenv("FIGMA_ACCESS_TOKEN")) %>%
-    req_user_agent("Rigma (http://my.rigma)") %>%
     req_method("DELETE") %>%
     req_error(body = function(resp) {
       resp %>%
         resp_body_json() %>%
         chuck("message")
     }) %>%
+    req_rigma_agent %>%
     req_perform() %>%
     resp_body_json()
 

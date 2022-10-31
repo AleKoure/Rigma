@@ -86,14 +86,13 @@ get_file_nodes <- function(
   resp <- request("https://api.figma.com/v1/files") %>%
     req_url_path_append(file_key) %>%
     req_url_path_append("nodes") %>%
-    req_headers(`X-Figma-Token` = Sys.getenv("FIGMA_ACCESS_TOKEN")) %>%
     req_url_query(!!!params) %>%
-    req_user_agent("Rigma (http://my.rigma)") %>%
     req_error(body = function(resp) {
       resp %>%
         resp_body_json() %>%
         chuck("err")
     }) %>%
+    req_rigma_agent %>%
     req_perform() %>%
     resp_body_json()
 

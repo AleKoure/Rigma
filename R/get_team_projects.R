@@ -28,13 +28,12 @@ get_team_projects <- function(team_id) {
   resp <- request("https://api.figma.com/v1/teams/") %>%
     req_url_path_append(team_id) %>%
     req_url_path_append("projects") %>%
-    req_headers(`X-Figma-Token` = Sys.getenv("FIGMA_ACCESS_TOKEN")) %>%
-    req_user_agent("Rigma (http://my.rigma)") %>%
     req_error(body = function(resp) {
       resp %>%
         resp_body_json() %>%
         chuck("message")
     }) %>%
+    req_rigma_agent %>%
     req_perform() %>%
     resp_body_json()
 

@@ -39,8 +39,6 @@ post_comment_reactions <- function(
     req_url_path_append("comments") %>%
     req_url_path_append(comment_id) %>%
     req_url_path_append("reactions") %>%
-    req_headers(`X-Figma-Token` = Sys.getenv("FIGMA_ACCESS_TOKEN")) %>%
-    req_user_agent("Rigma (http://my.rigma)") %>%
     req_method("POST") %>%
     req_body_json(list(emoji = emoji)) %>%
     req_error(body = function(resp) {
@@ -48,6 +46,7 @@ post_comment_reactions <- function(
         resp_body_json() %>%
         chuck("message")
     }) %>%
+    req_rigma_agent %>%
     req_perform() %>%
     resp_body_json()
 
