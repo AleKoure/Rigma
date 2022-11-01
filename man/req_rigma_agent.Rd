@@ -19,16 +19,3 @@ specifications.
 Extra metadata attached to httr2 request object before
 performing the request.
 }
-\examples{
-\dontshow{if (Sys.getenv("FIGMA_ACCESS_TOKEN") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\donttest{
-#navigate to  file and get key from url
-project_id <- "71686204"
-get_project_files(project_id)
-resp <- request("https://api.figma.com/v1/projects/") \%>\%
-  req_url_path_append(project_id) \%>\%
-  req_url_path_append("files") \%>\%
-  req_rigma_agent()
-}
-\dontshow{\}) # examplesIf}
-}

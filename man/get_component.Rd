@@ -14,14 +14,5 @@ S3 object of class `rigma_get_component`.
 }
 \description{
 Get metadata on a component by key. To publish components join
-a figma team and subscribe for professional account.
-}
-\examples{
-\dontshow{if (Sys.getenv("FIGMA_ACCESS_TOKEN") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\donttest{
-#navigate to team page and get id from url
-component_key <- "my_key"
-get_component(component_key)
-}
-\dontshow{\}) # examplesIf}
+a Figma team and subscribe for professional account.
 }

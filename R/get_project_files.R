@@ -8,9 +8,9 @@
 #' main file with a branch inside the project. Default: "false"
 #'
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query
+#' req_perform resp_body_json req_url_query resp_body_html
 #'
-#' @importFrom checkmate assert_string assert_logical
+#' @importFrom checkmate assert_string assert_logical assert_subset
 #'
 #' @importFrom xml2 xml_find_all xml_text
 #'

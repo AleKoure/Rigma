@@ -12,8 +12,8 @@
 #'
 #' @importFrom checkmate assert_string
 #'
-#' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
-#' \donttest{
+#' @example
+#' \dontrun{
 #' component_key <- "my_key"
 #' get_component(component_key)
 #' }

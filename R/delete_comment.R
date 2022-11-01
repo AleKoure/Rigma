@@ -17,7 +17,7 @@
 #' #navigate to  file and get key from url
 #' file_key <- "sFHgQh9dL6369o5wrZHmdR"
 #' first_comment_id <- get_comments(file_key)$comments[[1]]$id
-#' delete_comment(file_key, "asfas213213")
+#' delete_comment(file_key, first_comment_id)
 #' }
 #'
 #' @export
