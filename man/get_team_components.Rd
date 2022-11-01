@@ -21,18 +21,19 @@ shown by the cursor. Exclusive with after The cursor value is a tracked
 integer that is kept internally but has no Ids.}
 }
 \value{
-????
+S3 object of class `rigma_get_team_components`. Components are
+stored in the `meta` field.
 }
 \description{
 Get a paginated list of published components within a team
-library.
+library. Note that team components are only available via the professional
+plan.
 }
 \examples{
 \dontshow{if (Sys.getenv("FIGMA_ACCESS_TOKEN") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
-#navigate to  file and get key from url
-file_key <- "sFHgQh9dL6369o5wrZHmdR"
-get_image_fills(file_key)
+#navigate to team page and get id from url
+get_team_components(team_id = "1168610438838663284")
 }
 \dontshow{\}) # examplesIf}
 }
