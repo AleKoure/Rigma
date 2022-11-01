@@ -15,7 +15,8 @@ Imports:
     httr2,
     lubridate,
     magrittr,
-    purrr
+    purrr,
+    xml2
 Suggests: 
     httptest2,
     testthat (>= 3.0.0)
