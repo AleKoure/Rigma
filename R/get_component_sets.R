@@ -12,7 +12,7 @@
 #'
 #' @importFrom checkmate assert_string
 #'
-#' @example
+#' @examples
 #' \dontrun{
 #' component_key <- "my_key"
 #' get_component_sets(component_key)
