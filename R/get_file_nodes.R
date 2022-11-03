@@ -23,7 +23,7 @@
 #' @param geometry string. To export vector data, set equal to "paths".
 #'
 #' @param plugin_data string. A list of plugin IDs separated by commas or the
-#' word "shared." The result's 'pluginData' and'sharedPluginData' attributes
+#' word "shared." The result's 'pluginData' and 'sharedPluginData' attributes
 #' will contain any data existing in the document created by those plugins.
 #'
 #' @returns S3 object of the type `rigma_get_file_nodes`.

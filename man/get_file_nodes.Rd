@@ -32,7 +32,7 @@ returning Pages. All nodes are returned if this argument is not set.}
 \item{geometry}{string. To export vector data, set equal to "paths".}
 
 \item{plugin_data}{string. A list of plugin IDs separated by commas or the
-word "shared." The result's 'pluginData' and'sharedPluginData' attributes
+word "shared." The result's 'pluginData' and 'sharedPluginData' attributes
 will contain any data existing in the document created by those plugins.}
 }
 \value{

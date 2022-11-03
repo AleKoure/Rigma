@@ -1,6 +1,6 @@
 #' DELETE comment reactions
 #'
-#' @description Removes a particular comment reacftion. The only person with
+#' @description Removes a particular comment reaction. The only person with
 #' the ability to delete a comment reaction is the original poster.
 #'
 #' @param file_key string. The key that a Figma file is referred by.

@@ -21,3 +21,32 @@ You can install the development version of Rigma from
 # install.packages("devtools")
 devtools::install_github("AleKoure/Rigma")
 ```
+
+## Getting started
+
+An account can be accessed using an API by the owner of a personal
+access token just as if they were the user who created the token.
+
+Make your own access token. - Open your Figma account and log in. - From
+the top-left menu in Figma, select Account Settings. - Locate the
+section on personal access tokens. - Select New Token by clicking. -
+There will be a token created. This will be your last opportunity to
+copy the token, so be careful to store a copy of it safely.
+
+When you retrieve the personal access token save it as an environmental
+variable (e.g. edit `.Renviron` by typing `usethis::edir_r_environ()`).
+
+    FIGMA_ACCESS_TOKEN="YOUR_ACCESS_TOKEN_GOES_HERE!!!"
+
+After saving your changes restart R session.
+
+## Example
+
+Open Figma and navigate to your favorite file. In the URL you can see
+the key of the file. To retrieve the File as an R object execute:
+
+    example_file_key <- "sFHgQh9dL6369o5wrZHmdR"
+    get_file(example_file_key)
+
+A tree of nodes is used to represent the Figma file. Every file has a
+DOCUMENT node at the root, and any CANVAS nodes branch out of that node.

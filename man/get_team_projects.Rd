@@ -13,7 +13,7 @@ get_team_projects(team_id)
 Get a list of all the Projects inside the specified team using
 this Endpoint. Only projects visible to the authorized user or the holder
 of the developer token will be returned. It should be noted that a user's
-team ID cannot yet be determined programmatically from a token. Go to the
+team ID cannot yet be determined from a token. Go to the
 team page of the team you are a part of to get your team ID. After the term
 "team" and before your team name, the team id will appear in the URL.
 }
