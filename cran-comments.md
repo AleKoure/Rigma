@@ -24,6 +24,5 @@ This is a resubmission. In this version I have:
 * Updated the .Rd files with exported functions missing \value and explained
 the functions results.
 
-* Added toy examples were is possible. For most cases, it is not feasible to 
-unwrap the examples from \donttest{}. Most of the examples are wrapped in 
-\donttest{} because all functions use Figma API that requires authentication.
+* It is not feasible to unwrap the examples from \donttest{}. The 
+examples are wrapped in \donttest{} because all functions require authentication.

@@ -14,9 +14,6 @@
 #' @return httr2_request object with Figma token heater, user agent and retry
 #' specifications.
 #'
-#' @examples
-#' request("https://example.com") %>% req_rigma_agent()
-#'
 req_rigma_agent <- function(
     req,
     user_agent = "Rigma https://github.com/AleKoure/Rigma"
