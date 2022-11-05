@@ -14,8 +14,12 @@ delete_comment_reactions(file_key, comment_id, emoji)
 \item{emoji}{string. The emoji type of reaction to delete as a string enum
 :eyes:, :heart_eyes:, :heavy_plus_sign:, :+1:, :-1:, :joy: and :fire:}
 }
+\value{
+S3 object of class `rigma_delete_comment_reactions`. Contains the parsed
+JSON response with fields `error`, `status`, and `i18n`.
+}
 \description{
-Removes a particular comment reacftion. The only person with
+Removes a particular comment reaction. The only person with
 the ability to delete a comment reaction is the original poster.
 }
 \examples{

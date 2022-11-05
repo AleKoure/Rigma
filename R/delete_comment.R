@@ -7,6 +7,9 @@
 #'
 #' @param comment_id string. The comment id.
 #'
+#' @returns S3 object of class `rigma_delete_comment`. Contains the parsed
+#' JSON response with fields `error`, `status`, and `i18n`.
+#'
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query req_method
 #'

@@ -11,6 +11,10 @@ delete_comment(file_key, comment_id)
 
 \item{comment_id}{string. The comment id.}
 }
+\value{
+S3 object of class `rigma_delete_comment`. Contains the parsed
+JSON response with fields `error`, `status`, and `i18n`.
+}
 \description{
 Deletes a specific comment. Only the person who made the
 comment is allowed to delete it.

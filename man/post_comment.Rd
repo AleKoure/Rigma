@@ -17,6 +17,12 @@ thus this must be a root comment.}
 
 \item{client_meta}{string. The position of where to place the comment.}
 }
+\value{
+S3 object of class `rigma_post_comment`. Contains the parsed
+JSON response with fields `id`, `file_key`, `status`, `i18n`, `parent_id`,
+`user`, `created_at`, `resolved_at`, `message`, `reactions`, `client_meta`,
+and `order_id`.
+}
 \description{
 Posts a new comment on the file.
 }

@@ -27,11 +27,14 @@ devtools::install_github("AleKoure/Rigma")
 An account can be accessed using an API by the owner of a personal
 access token just as if they were the user who created the token.
 
-Make your own access token. - Open your Figma account and log in. - From
-the top-left menu in Figma, select Account Settings. - Locate the
-section on personal access tokens. - Select New Token by clicking. -
-There will be a token created. This will be your last opportunity to
-copy the token, so be careful to store a copy of it safely.
+Make your own access token.
+
+- Open your Figma account and log in.
+- From the top-left menu in Figma, select Account Settings.
+- Locate the section on personal access tokens.
+- Select New Token by clicking.
+- There will be a token created. This will be your last opportunity to
+  copy the token, so be careful to store a copy of it safely.
 
 When you retrieve the personal access token save it as an environmental
 variable (e.g. edit `.Renviron` by typing `usethis::edir_r_environ()`).

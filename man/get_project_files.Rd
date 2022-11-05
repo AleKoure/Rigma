@@ -12,6 +12,10 @@ get_project_files(project_id, branch_data = "false")
 \item{branch_data}{string. Returns branch metadata in the response for each
 main file with a branch inside the project. Default: "false"}
 }
+\value{
+S3 object of class `rigma_get_project_files`. Contains the parsed
+JSON response with fields `name`, and `files`.
+}
 \description{
 List the files in a given project.
 }

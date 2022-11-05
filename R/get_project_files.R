@@ -7,6 +7,9 @@
 #' @param branch_data string. Returns branch metadata in the response for each
 #' main file with a branch inside the project. Default: "false"
 #'
+#' @returns S3 object of class `rigma_get_project_files`. Contains the parsed
+#' JSON response with fields `name`, and `files`.
+#'
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query resp_body_html
 #'

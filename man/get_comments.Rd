@@ -9,6 +9,10 @@ get_comments(file_key)
 \arguments{
 \item{file_key}{string. The key that a Figma file is referred by.}
 }
+\value{
+S3 object of class `rigma_get_comments`. Contains the parsed
+JSON response.
+}
 \description{
 Gets a list of comments left on the file.
 }

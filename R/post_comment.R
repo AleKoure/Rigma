@@ -12,6 +12,11 @@
 #'
 #' @param client_meta string. The position of where to place the comment.
 #'
+#' @returns S3 object of class `rigma_post_comment`. Contains the parsed
+#' JSON response with fields `id`, `file_key`, `status`, `i18n`, `parent_id`,
+#' `user`, `created_at`, `resolved_at`, `message`, `reactions`, `client_meta`,
+#' and `order_id`.
+#'
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query req_body_form req_body_json
 #'

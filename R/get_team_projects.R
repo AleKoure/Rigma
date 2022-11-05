@@ -9,6 +9,9 @@
 #'
 #' @param team_id string. Id of the team to list projects from.
 #'
+#' @returns S3 object of class `rigma_get_team_projects`. Contains the parsed
+#' JSON response with fields `name`, and `projects`.
+#'
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query
 #'

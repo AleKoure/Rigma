@@ -9,6 +9,10 @@ get_team_projects(team_id)
 \arguments{
 \item{team_id}{string. Id of the team to list projects from.}
 }
+\value{
+S3 object of class `rigma_get_team_projects`. Contains the parsed
+JSON response with fields `name`, and `projects`.
+}
 \description{
 Get a list of all the Projects inside the specified team using
 this Endpoint. Only projects visible to the authorized user or the holder

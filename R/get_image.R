@@ -34,6 +34,9 @@
 #' @param version string. A specific version ID to use. Omitting this will use
 #' the current version of the file
 #'
+#' @returns S3 object of class `rigma_get_image`. Contains the parsed
+#' JSON response with fields `err`, and `images`.
+#'
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query req_error
 #'

@@ -9,6 +9,9 @@
 #' @param cursor string obtained from the result of the previous request, a
 #' cursor for pagination.
 #'
+#' @returns S3 object of class `rigma_get_comments_reactions`. Contains the parsed
+#' JSON response with fields `reactions`, and `pagination`.
+#'
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query
 #'

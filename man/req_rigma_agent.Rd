@@ -19,3 +19,7 @@ specifications.
 Extra metadata attached to httr2 request object before
 performing the request.
 }
+\examples{
+request("https://example.com") \%>\% req_rigma_agent()
+
+}

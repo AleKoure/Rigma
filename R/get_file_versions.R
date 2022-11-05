@@ -7,6 +7,9 @@
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query
 #'
+#' @returns S3 object of class `rigma_get_file_versions`. Contains the parsed
+#' JSON response with fields `versions`, and `pagination`.
+#'
 #' @importFrom checkmate assert_string assert_integer assert_logical expect_list
 #'
 #' @importFrom purrr chuck

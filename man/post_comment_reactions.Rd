@@ -16,6 +16,10 @@ thus this must be a root comment.}
 \item{emoji}{string. The emoji type of reaction as a string enum :eyes:,
 :heart_eyes:, :heavy_plus_sign:, :+1:, :-1:, :joy: and :fire:}
 }
+\value{
+S3 object of class `rigma_post_comment_reactions`. Contains the parsed
+JSON response with fields `error`, `status`, and `i18n`.
+}
 \description{
 Posts a new comment reaction on a file comment.
 }

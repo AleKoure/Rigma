@@ -4,6 +4,9 @@
 #'
 #' @param file_key string. The key that a Figma file is referred by.
 #'
+#' @returns S3 object of class `rigma_get_comments`. Contains the parsed
+#' JSON response.
+#'
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query
 #'

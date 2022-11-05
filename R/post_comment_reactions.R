@@ -11,6 +11,9 @@
 #' @param emoji string. The emoji type of reaction as a string enum :eyes:,
 #' :heart_eyes:, :heavy_plus_sign:, :+1:, :-1:, :joy: and :fire:
 #'
+#' @returns S3 object of class `rigma_post_comment_reactions`. Contains the parsed
+#' JSON response with fields `error`, `status`, and `i18n`.
+#'
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query req_body_form req_body_json req_method
 #'

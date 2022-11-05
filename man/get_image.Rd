@@ -40,6 +40,10 @@ without cropping, use this method. Standard: false.}
 \item{version}{string. A specific version ID to use. Omitting this will use
 the current version of the file}
 }
+\value{
+S3 object of class `rigma_get_image`. Contains the parsed
+JSON response with fields `err`, and `images`.
+}
 \description{
 If there are no errors, "images" will be filled with a list of
 node IDs and their corresponding URLs for the displayed images, and "status"
