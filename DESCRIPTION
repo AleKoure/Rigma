@@ -21,6 +21,7 @@ Imports:
     httr2,
     lubridate,
     magrittr,
+    png,
     purrr,
     xml2
 Suggests: 
