@@ -44,12 +44,22 @@
     <a class="dropdown-item" href="../articles/rigma_intro.html">Introduction to Figma API</a>
   </div>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
 </form>
 
-      <ul class="navbar-nav"></ul>
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/AleKoure/Rigma/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 
     
@@ -64,22 +74,52 @@
       <img src="" class="logo" alt=""><h1>Introduction to Figma API</h1>
             
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/AleKoure/Rigma/blob/HEAD/vignettes/rigma_intro.Rmd" class="external-link"><code>vignettes/rigma_intro.Rmd</code></a></small>
       <div class="d-none name"><code>rigma_intro.Rmd</code></div>
     </div>
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">Rigma</span><span class="op">)</span></span></code></pre></div>
-  </main>
+<div class="section level2">
+<h2 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
+</h2>
+<p>An account can be accessed using an API by the owner of a personal
+access token just as if they were the user who created the token.</p>
+<p>Make your own access token. - Open your Figma account and log in. -
+From the top-left menu in Figma, select Account Settings. - Locate the
+section on personal access tokens. - Select New Token by clicking. -
+There will be a token created. This will be your last opportunity to
+copy the token, so be careful to store a copy of it safely.</p>
+<p>When you retrieve the personal access token save it as an
+environmental variable (e.g. edit <code>.Renviron</code> by typing
+<code>usethis::edir_r_environ()</code>).</p>
+<pre><code><span><span class="va">FIGMA_ACCESS_TOKEN</span><span class="op">=</span><span class="st">"YOUR_ACCESS_TOKEN_GOES_HERE!!!"</span></span></code></pre>
+<p>After saving your changes restart R session.</p>
+<div class="section level3">
+<h3 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h3>
+<p>Open Figma and navigate to your favorite file. In the URL you can see
+the key of the file. To retrieve the File as an R object execute:</p>
+<pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AleKoure/Rigma" class="external-link">Rigma</a></span><span class="op">)</span></span>
+<span><span class="va">example_file_key</span> <span class="op">&lt;-</span> <span class="st">"sFHgQh9dL6369o5wrZHmdR"</span></span>
+<span><span class="fu"><a href="../reference/get_file.html">get_file</a></span><span class="op">(</span><span class="va">example_file_key</span><span class="op">)</span></span></code></pre>
+<p>A tree of nodes is used to represent the Figma file. Every file has a
+DOCUMENT node at the root, and any CANVAS nodes branch out of that
+node.</p>
+<p><strong>Note:</strong> At this beta release a Figma team exists for
+running tests. If you want to contribute contact the maintainer to get
+invitation for the <code>Rigma tests</code> team.</p>
+</div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by The package maintainer.</p>
+<p>Developed by Alexandros Kouretsis.</p>
 </div>
 
 <div class="pkgdown-footer-right">
