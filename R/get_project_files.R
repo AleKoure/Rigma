@@ -18,7 +18,7 @@
 #' @importFrom xml2 xml_find_all xml_text
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
-#' \donttest{
+#' \dontrun{
 #' #navigate to  file and get key from url
 #' project_id <- "71686204"
 #' get_project_files(project_id)

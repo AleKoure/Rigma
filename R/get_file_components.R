@@ -15,7 +15,7 @@
 #' @importFrom checkmate assert_string
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
-#' \donttest{
+#' \dontrun{
 #' #navigate to team page and get id from url
 #' file_key <- "gYRjH0y8ZM0VtEfO8kf6ch"
 #' get_file_components(file_key)

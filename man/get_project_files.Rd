@@ -21,7 +21,7 @@ List the files in a given project.
 }
 \examples{
 \dontshow{if (Sys.getenv("FIGMA_ACCESS_TOKEN") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\donttest{
+\dontrun{
 #navigate to  file and get key from url
 project_id <- "71686204"
 get_project_files(project_id)

@@ -20,7 +20,7 @@
 #' @importFrom purrr chuck
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
-#' \donttest{
+#' \dontrun{
 #' #navigate to  file and get key from url
 #' file_key <- "sFHgQh9dL6369o5wrZHmdR"
 #' resp <- get_comments(file_key)

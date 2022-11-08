@@ -20,7 +20,7 @@ plan.
 }
 \examples{
 \dontshow{if (Sys.getenv("FIGMA_ACCESS_TOKEN") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\donttest{
+\dontrun{
 #navigate to team page and get id from url
 file_key <- "gYRjH0y8ZM0VtEfO8kf6ch"
 get_file_component_sets(file_key)

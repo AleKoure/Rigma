@@ -24,5 +24,7 @@ This is a resubmission. In this version I have:
 * Updated the .Rd files with exported functions missing \value and explained
 the functions results.
 
-* It is not feasible to unwrap the examples from \donttest{}. The 
-examples are wrapped in \donttest{} because all functions require authentication.
+* It is not feasible to unwrap the examples from \dontrun{}. The 
+examples are wrapped in \dontrun{} because all functions require authentication.
+
+* Removed \donttest{} from the examples and used \dontrun{}.

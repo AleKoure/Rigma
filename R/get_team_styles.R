@@ -25,7 +25,7 @@
 #' @importFrom checkmate assert_string assert_number
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
-#' \donttest{
+#' \dontrun{
 #' #navigate to team page and get id from url
 #' get_team_styles(team_id = "1168610438838663284")
 #' }

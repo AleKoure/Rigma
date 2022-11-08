@@ -30,7 +30,7 @@ paginated.
 }
 \examples{
 \dontshow{if (Sys.getenv("FIGMA_ACCESS_TOKEN") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\donttest{
+\dontrun{
 #navigate to team page and get id from url
 get_team_styles(team_id = "1168610438838663284")
 }

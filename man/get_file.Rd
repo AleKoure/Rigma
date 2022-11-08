@@ -56,7 +56,7 @@ https://www.figma.com/file/:key/:title, can be used to parse the file key.
 }
 \examples{
 \dontshow{if (Sys.getenv("FIGMA_ACCESS_TOKEN") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-\donttest{
+\dontrun{
 #navigate to  file and get key from url
 file_key <- "sFHgQh9dL6369o5wrZHmdR"
 get_file(file_key)

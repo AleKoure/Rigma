@@ -6,7 +6,7 @@ Authors@R: c(
  person("Alexandros", "Kouretsis", email = "alexandros@appsilon.com", role = c("aut", "cre")))
 Maintainer: Alexandros Kouretsis <alexandros@appsilon.com>
 Description: The 'Figma' API allows for interactions and read access to 'Figma'
- files <https://www.figma.com/developers>. This enables you to inspect any 
+ files <https://www.figma.com/developers/api>. This enables you to inspect any 
  objects or layers, as well as their properties, and extract them so you may 
  render them as images outside of 'Figma'. Then you can present your designs,
  extract design data that can be used for 'Shiny' and 'Rmarkdown', integrate 
