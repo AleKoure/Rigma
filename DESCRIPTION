@@ -23,6 +23,8 @@ Imports:
     magrittr,
     png,
     purrr,
+    tidyr,
+    withr,
     xml2
 Suggests: 
     covr,
