@@ -30,7 +30,7 @@ thumbnail_color <- function(path, hex = TRUE) {
       res,
       lower = 0,
       upper = 1,
-      .var.name = "monochromatic _chanel"
+      .var.name = "monochromatic_chanel"
     )
     res
   }) %>%
