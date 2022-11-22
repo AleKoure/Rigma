@@ -52,7 +52,7 @@ add_color.design_tibble_style <- function(design_tibble, hex = TRUE) {
       pmap_dfr(function(key, thumbnail_url, ...) {
         png_path <- glue("{key}.png")
         safe_download(thumbnail_url, destfile = png_path)
-        color <- if (file_exists(png_path)) thumbnail_color(png_path, hex) else NA
+        color <- possibly_thumbnail_color(png_path, hex)
         list(key = key, color = color)
       })
   })
