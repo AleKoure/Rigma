@@ -39,7 +39,7 @@ as_design_tibble <- function(rigma_resp, message = TRUE) {
 as_design_tibble.default <- function(rigma_resp, message = TRUE) {
   if (isTRUE(message))
     message("Called default method. Trying to transform to tibble")
-  as_tibble(x) %>%
+  as_tibble(rigma_resp) %>%
     new_tibble(class = "design_tibble")
 }
 
