@@ -17,12 +17,18 @@ LazyData: true
 URL: https://github.com/AleKoure/Rigma
 RoxygenNote: 7.2.1
 Imports: 
+    bslib,
     checkmate,
+    dplyr,
+    fs,
+    glue,
     httr2,
     lubridate,
     magrittr,
     png,
     purrr,
+    rlang,
+    tibble,
     tidyr,
     withr,
     xml2
