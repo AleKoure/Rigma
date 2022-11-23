@@ -7,8 +7,8 @@
 #'
 #' @param file_key string. The key that a Figma file is referred by.
 #'
-#' @param ids string. list the document's nodes that are important to you,
-#' separated by commas. If supplied, only the nodes listed, their children,
+#' @param ids character. Vector with the document's node ids that are important
+#' to you. If supplied, only the nodes listed, their children,
 #' and everything between the root node and the listed nodes will be returned
 #' as part of the document.
 #'
@@ -48,7 +48,7 @@
 #' @importFrom httr2 request req_url_path_append req_headers req_user_agent
 #' req_perform resp_body_json req_url_query
 #'
-#' @importFrom checkmate assert_string assert_integer
+#' @importFrom checkmate assert_string assert_integer assert_character
 #'
 #' @importFrom lubridate as_datetime
 #'
@@ -70,10 +70,12 @@ get_file_nodes <- function(
 ) {
   assert_string(file_key)
   assert_string(version, null.ok = TRUE)
-  assert_string(ids, null.ok = TRUE)
+  assert_character(ids, null.ok = TRUE)
   assert_integer(depth, null.ok = TRUE)
   assert_string(geometry, null.ok = TRUE)
   assert_string(plugin_data, null.ok = TRUE)
+
+  if (!is.null(ids)) ids <- paste0(ids, collapse = ",")
 
   params <- list(
     version = version,
