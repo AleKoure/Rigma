@@ -16,8 +16,8 @@ get_file_nodes(
 \arguments{
 \item{file_key}{string. The key that a Figma file is referred by.}
 
-\item{ids}{string. list the document's nodes that are important to you,
-separated by commas. If supplied, only the nodes listed, their children,
+\item{ids}{character. Vector with the document's node ids that are important
+to you. If supplied, only the nodes listed, their children,
 and everything between the root node and the listed nodes will be returned
 as part of the document.}
 
