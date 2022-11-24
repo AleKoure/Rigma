@@ -23,6 +23,8 @@
 #'
 #' @importFrom dplyr group_nest left_join
 #'
+#' @importFrom rlang .data
+#'
 #' @examples
 #' \dontrun{
 #' file_key <- "sFHgQh9dL6369o5wrZHmdR"
@@ -39,7 +41,7 @@ add_color <- function(design_tibble, hex = TRUE) {
 #'
 #' @export
 add_color.default <- function(design_tibble, hex = TRUE) {
-  error("Called default method. Don't know how to add color")
+  stop("Called default method. Don't know how to add color")
 }
 
 #'
@@ -59,7 +61,7 @@ add_color.design_tibble_style <- function(design_tibble, hex = TRUE) {
 
   if (isFALSE(hex)) {
     color_df <- color_df %>%
-      group_nest(key, .key = 'color')
+      group_nest(.data$key, .key = 'color')
   }
 
   left_join(design_tibble, color_df, by = "key")

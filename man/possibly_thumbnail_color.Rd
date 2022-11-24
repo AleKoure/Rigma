@@ -6,6 +6,9 @@
 \usage{
 possibly_thumbnail_color(...)
 }
+\arguments{
+\item{...}{Variables passed to wrapped function}
+}
 \value{
 thumbnail_color function that handles errors
 }

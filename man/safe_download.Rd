@@ -6,6 +6,9 @@
 \usage{
 safe_download(...)
 }
+\arguments{
+\item{...}{Variables passed to wrapped function}
+}
 \value{
 download function that safely handles errors
 }

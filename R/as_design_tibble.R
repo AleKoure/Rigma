@@ -22,6 +22,8 @@
 #'
 #' @importFrom tidyr nest
 #'
+#' @importFrom rlang .data
+#'
 #' @examples
 #' \dontrun{
 #' file_key <- "sFHgQh9dL6369o5wrZHmdR"
@@ -54,10 +56,10 @@ as_design_tibble.rigma_get_file_styles <- function(
   rigma_resp %>%
     chuck("meta", "styles") %>%
     map_dfr(~{.x %>% as_tibble()}) %>%
-    nest(user_data = user) %>%
+    nest(user_data = "user") %>%
     mutate(
-      created_at = as_datetime(created_at),
-      updated_at = as_datetime(updated_at)
+      created_at = as_datetime(.data$created_at),
+      updated_at = as_datetime(.data$updated_at)
     ) %>%
     new_tibble(class = "design_tibble_style")
 }

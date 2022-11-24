@@ -1,4 +1,5 @@
 test_that("Extract bslib palette is OK!", {
+  skip_on_cran()
   file_key <- "sFHgQh9dL6369o5wrZHmdR"
   bslib_vars <- file_key %>%
     get_file_styles() %>%

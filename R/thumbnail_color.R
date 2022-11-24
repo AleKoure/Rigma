@@ -12,6 +12,8 @@
 #'
 #' @importFrom purrr imap set_names invoke
 #'
+#' @importFrom grDevices rgb
+#'
 #' @return The color of the thumbnail in hex or rgba
 #' @export
 #'

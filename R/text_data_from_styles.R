@@ -17,6 +17,8 @@
 #'
 #' @importFrom purrr chuck imap_dfr
 #'
+#' @importFrom rlang .data
+#'
 #' @examples
 #' \dontrun{
 #' file_key <- "sFHgQh9dL6369o5wrZHmdR"
@@ -30,12 +32,12 @@
 text_data_from_styles <- function(design_tibble) {
   assert_class(design_tibble, "design_tibble_style")
   file_key <- design_tibble %>%
-    pull(file_key) %>%
+    pull(.data$file_key) %>%
     unique()
   assert_string(file_key)
   design_tibble %>%
-    filter(style_type == "TEXT") %>%
-    pull(node_id) %>%
+    filter(.data$style_type == "TEXT") %>%
+    pull(.data$node_id) %>%
     get_file_nodes(file_key, .) %>%
     chuck("nodes") %>%
     imap_dfr(~ append(

@@ -19,6 +19,8 @@
 #'
 #' @importFrom checkmate assert_true assert_class
 #'
+#' @importFrom rlang .data
+#'
 #' @export
 #'
 #' @examples
@@ -45,10 +47,10 @@ extract_bslib_palette <- function(design_tibble, version = 5) {
     flatten_chr()
 
   resp_hl_colors <- design_tibble %>%
-    filter(name %in% hl_bslib_colors) %>%
-    select(name, color)
+    filter(.data$name %in% hl_bslib_colors) %>%
+    select("name", "color")
 
   pmap(resp_hl_colors, ~ .y) %>%
-    set_names(resp_hl_colors %>% pull(name)) %>%
+    set_names(resp_hl_colors %>% pull("name")) %>%
     append(list(version = version))
 }
