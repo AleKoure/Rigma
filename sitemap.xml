@@ -16,6 +16,9 @@
     <loc>/articles/rigma_intro.html</loc>
   </url>
   <url>
+    <loc>/articles/style_shiny_app_bslib.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
@@ -25,10 +28,19 @@
     <loc>/news/index.html</loc>
   </url>
   <url>
+    <loc>/reference/add_color.html</loc>
+  </url>
+  <url>
+    <loc>/reference/as_design_tibble.html</loc>
+  </url>
+  <url>
     <loc>/reference/delete_comment.html</loc>
   </url>
   <url>
     <loc>/reference/delete_comment_reactions.html</loc>
+  </url>
+  <url>
+    <loc>/reference/extract_bslib_palette.html</loc>
   </url>
   <url>
     <loc>/reference/get_comments.html</loc>
@@ -88,6 +100,9 @@
     <loc>/reference/pipe.html</loc>
   </url>
   <url>
+    <loc>/reference/possibly_thumbnail_color.html</loc>
+  </url>
+  <url>
     <loc>/reference/post_comment.html</loc>
   </url>
   <url>
@@ -95,5 +110,14 @@
   </url>
   <url>
     <loc>/reference/req_rigma_agent.html</loc>
+  </url>
+  <url>
+    <loc>/reference/safe_download.html</loc>
+  </url>
+  <url>
+    <loc>/reference/text_data_from_styles.html</loc>
+  </url>
+  <url>
+    <loc>/reference/thumbnail_color.html</loc>
   </url>
 </urlset>
