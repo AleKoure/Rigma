@@ -16,16 +16,20 @@ knitr::opts_chunk$set(
 
 # Getting started
 
-An account can be accessed using an API by the owner of a personal access token 
-just as if they were the user who created the token.
+An account in Figma can be accessed using the API and a personal access token.
 
-Make your own access token.
+Make your own access token:
+
 - Open your Figma account and log in.
+
 - From the top-left menu in Figma, select Account Settings.
+
 - Locate the section on personal access tokens.
+
 - Select New Token by clicking.
-- There will be a token created. This will be your last opportunity to copy 
-the token, so be careful to store a copy of it safely.
+
+- There will be a token created. This will be your last opportunity to copy the 
+token, so be careful to store a copy of it safely.
 
 When you retrieve the personal access token save it as an environmental 
 variable (e.g. edit `.Renviron` by typing `usethis::edir_r_environ()`).
@@ -48,8 +52,6 @@ get_file(example_file_key)
 ```
 
 A tree of nodes is used to represent the Figma file. Every file has a DOCUMENT 
-node at the root, and any CANVAS nodes branch out of that node.
-
-**Note:** At this beta release a Figma team exists for running tests. If you 
-want to contribute contact the maintainer to get invitation for the 
-`Rigma tests` team.
+node at the root, and any CANVAS nodes branch out of that node. Various POST
+and GET methods are provided in this package to interact with a Figma files and
+teams.

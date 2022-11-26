@@ -53,8 +53,8 @@ The high level bootstrap variables are the arguments of the functions
 rlang::fn_fmls_names(bslib::bs_theme) %>%
   tail(-3)
 ```
-By using these names into a 'Figma' file we can directly manipulate the theme 
-of the Application by updating the 'Figma' file.
+By using these names as style names into a 'Figma' file we can directly manipulate
+the theme of the Application.
 
 Open the 'Figma' file and insert the styles of your choice using `blib` variable
 names as printed from the previous chunk. On the right hand side of your screen 
@@ -64,11 +64,11 @@ you should get a View similar to the following:
 
 After defining some of the variables that you want to modify navigate to the
 top left and select Assets. Then, push the book button to publish the changes
-on the file.
+on the file. Now the file is ready to be accessed from an R session using `Rigma`.
 
 ## Extract data to R
 
-Using the `Rigma` package we can access published data via 'Figma' REST API.
+We can access published data via 'Figma' REST API.
 Find the file id in the URL of the 'Figma' file. Then, collect style data:
 
 ```r
@@ -78,9 +78,10 @@ style_data <- file_key %>%
   Rigma::as_design_tibble()
 ```
 
-The color is encoded in node ids and in thumbnail URLs provided by the API. We
-include an example function that collects color data using the
-thumbnail URLs. It will add an additional variable named as `color`.
+The color is encoded in thumbnail URLs provided by the API 
+(alternatively you can get color metadata from node ids and using the 
+`Rigma::get_file_nodes()` method). For this tutorial, we include an example 
+function that collects color data using the thumbnail URLs, `add_color()`. 
 We can get high level `bslib` color variables by executing:
 
 ```r
@@ -89,7 +90,9 @@ bslib_palette <- style_data %>%
   Rigma::extract_bslib_palette()
 ```
 
-Also, metadata about text can be extracted using the following function:
+### Text data
+
+Metadata about text can be extracted using the following function:
 
 ```r
 text_data <- Rigma::text_data_from_styles(style_data)
@@ -100,6 +103,8 @@ base_font <- text_data %>%
   pull(fontFamily) %>%
   font_google()
 ```
+
+### Creating `bs_theme` object
 
 Collecting the font and color data we can create the `bs_theme` object that can
 be used to stylize a shiny app
