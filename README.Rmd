@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Rigma <a href="https://alekoure.github.io/Rigma/" rel="nofollow"><img src='man/figures/logo.png' align="right" height="130"/></a>
+# Rigma 
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/AleKoure/Rigma/workflows/R-CMD-check/badge.svg)](https://github.com/AleKoure/Rigma/actions)
