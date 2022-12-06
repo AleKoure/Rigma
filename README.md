@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Rigma <a href="https://alekoure.github.io/Rigma/" rel="nofollow"><img src='man/figures/logo.png' align="right" height="130"/></a>
+# Rigma
 
 <!-- badges: start -->
 
