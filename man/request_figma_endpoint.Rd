@@ -5,8 +5,9 @@
 \title{Create a request for a specified Figma API Endpoint}
 \usage{
 request_figma_endpoint(
-  endpoint,
+  endpoint = NULL,
   base_url = "https://api.figma.com",
+  template = NULL,
   method = NULL,
   token = NULL,
   ...

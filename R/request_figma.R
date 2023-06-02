@@ -3,20 +3,22 @@
 #' @rdname request_figma_endpoint
 #' @inheritParams httr2::request
 #' @inheritParams httr2::req_method
-#' @inheritParams figma_template
+#' @inheritParams req_figma_template
 #' @inheritParams req_rigma_agent
 #' @inheritDotParams httr2::req_template
 #' @keywords internal
 #' @importFrom httr2 request req_template req_error resp_body_json req_method
 #' @importFrom rlang is_null
-request_figma_endpoint <- function(endpoint,
+request_figma_endpoint <- function(endpoint = NULL,
                                    base_url = "https://api.figma.com",
+                                   template = NULL,
                                    method = NULL,
                                    token = NULL,
                                    ...) {
   req <- httr2::request(base_url) %>%
-    httr2::req_template(
-      template = figma_template(endpoint),
+    req_figma_template(
+      endpoint = endpoint,
+      template = template,
       ...
     ) %>%
     httr2::req_error(
@@ -40,11 +42,23 @@ request_figma_endpoint <- function(endpoint,
 #' @keywords internal
 #' @inheritParams rlang::args_error_context
 #' @importFrom rlang caller_env arg_match
-figma_template <- function(endpoint = c("file", "file nodes", "images", "image fills", "versions", "users", "comments", "comment reactions", "projects", "project files", "team components", "file components", "component", "team component sets", "file component set", "component set", "team styles", "file styles", "style"),
-                           call = rlang::caller_env()) {
+req_figma_template <- function(req,
+                               endpoint = c("file", "file nodes", "images",
+                                            "image fills", "versions", "users",
+                                            "comments", "comment reactions",
+                                            "projects", "project files",
+                                            "team components", "file components",
+                                            "component", "team component sets",
+                                            "file component set", "component set",
+                                            "team styles", "file styles", "style"),
+                               template = NULL,
+                               ...,
+                               call = rlang::caller_env()) {
+
   endpoint <- rlang::arg_match(endpoint, error_call = call)
 
-  switch(endpoint,
+  template <- template %||%
+    switch(endpoint,
     "file" = "/v1/files/{file_key}",
     "file nodes" = "/v1/files/{file_key}/nodes",
     "images" = "/v1/images/{file_key}",
@@ -65,4 +79,6 @@ figma_template <- function(endpoint = c("file", "file nodes", "images", "image f
     "file styles" = "/v1/files/{file_key}/styles",
     "style" = "/v1/styles/{key}"
   )
+
+  httr2::req_template(req, template = template, ...)
 }

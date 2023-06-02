@@ -18,10 +18,10 @@ parse_figma_url <- function(url, call = caller_env()) {
 #' Parse a file key from a Figma URL
 #'
 #' @noRd
-parse_url_file_key <- function(url) {
+parse_url_file_key <- function(url, base_url = "https://www.figma.com") {
   string_extract(
     url,
-    "(?<=https://www.figma.com/file/)[[:alnum:]]+(?=/)"
+    glue("(?<={base_url}/file/)[[:alnum:]]+(?=/)")
   )
 }
 
@@ -38,16 +38,17 @@ parse_url_node_id <- function(url) {
 #' Parse a project ID from a Figma URL
 #'
 #' @noRd
-parse_url_project_id <- function(url) {
+parse_url_project_id <- function(url, base_url = "https://www.figma.com") {
   string_extract(
     url,
-    "(?<=https://www.figma.com/files/project/)([[:digit:]]+)+"
+    glue("(?<={base_url}/files/project/)([[:digit:]]+)+")
   )
 }
 
 #' Is x a likely Figma file key?
 #'
 #' @noRd
+#' @importFrom rlang is_string
 is_figma_file_key <- function(x) {
   is_string(x) && grepl("^[[:alnum:]]+$", x)
 }
@@ -55,12 +56,12 @@ is_figma_file_key <- function(x) {
 #' Is x a Figma URL?
 #'
 #' @noRd
-is_figma_url <- function(x) {
+is_figma_url <- function(x, base_url = "https://www.figma.com") {
   if (is_null(x)) {
     return(FALSE)
   }
 
-  is_url(x) && grepl("^https://www.figma.com", x)
+  is_url(x) && grepl(paste0("^", base_url), x)
 }
 
 #' Does x match the pattern of a URL?
