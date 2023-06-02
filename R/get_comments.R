@@ -7,9 +7,6 @@
 #' @returns S3 object of class `rigma_get_comments`. Contains the parsed
 #' JSON response.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query
-#'
 #' @importFrom checkmate assert_string assert_integer assert_logical expect_list
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
@@ -21,19 +18,11 @@
 #'
 #' @export
 get_comments <- function(file_key) {
-  assert_string(file_key)
-
-  resp <- request("https://api.figma.com/v1/files/") %>%
-    req_url_path_append(file_key) %>%
-    req_url_path_append("comments") %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("err")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma_endpoint(
+    "comments",
+    file_key = set_file_key(file_key)
+    ) %>%
+    figma_resp()
 
   structure(resp, class = "rigma_get_comments")
 }

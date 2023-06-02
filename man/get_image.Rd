@@ -6,7 +6,7 @@
 \usage{
 get_image(
   file_key,
-  ids,
+  ids = NULL,
   scale = NULL,
   format = NULL,
   svg_include_id = NULL,

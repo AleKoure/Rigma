@@ -19,9 +19,6 @@
 #' @returns S3 object of class `rigma_get_team_styles`. Styles are
 #' stored in the `meta` field.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query
-#'
 #' @importFrom checkmate assert_string assert_number
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
@@ -42,24 +39,15 @@ get_team_styles <- function(
   assert_number(after, null.ok = TRUE)
   assert_number(before, null.ok = TRUE)
 
-  params <- list(
-    page_size = page_size,
-    after = after,
-    before = before
-  )
-
-  resp <- request("https://api.figma.com/v1/teams/") %>%
-    req_url_path_append(team_id) %>%
-    req_url_path_append("styles") %>%
-    req_url_query(!!!params) %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("message")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma_endpoint(
+    endpoint = "team styles",
+    team_id = team_id
+  ) %>%
+    req_figma_query(
+      page_size = page_size,
+      after = after,
+      before = before
+    )
 
   structure(
     list(

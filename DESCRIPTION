@@ -18,10 +18,11 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/AleKoure/Rigma
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports: 
     bslib,
     checkmate,
+    cli,
     dplyr,
     fs,
     glue,

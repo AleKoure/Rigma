@@ -10,9 +10,6 @@
 #' @returns S3 object of class `rigma_delete_comment`. Contains the parsed
 #' JSON response with fields `error`, `status`, and `i18n`.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query req_method
-#'
 #' @importFrom checkmate assert_string
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
@@ -28,22 +25,17 @@ delete_comment <- function(
     file_key,
     comment_id
 ) {
-  assert_string(file_key)
+
+  file_key <- set_file_key(file_key)
   assert_string(comment_id)
 
-  resp <- request("https://api.figma.com/v1/files/") %>%
-    req_url_path_append(file_key) %>%
-    req_url_path_append("comments") %>%
-    req_url_path_append(comment_id) %>%
-    req_method("DELETE") %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("message")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma_endpoint(
+    "comments",
+    method = "DELETE",
+    file_key = file_key,
+    comment_id = comment_id
+  ) %>%
+    figma_resp()
 
   structure(
     list(

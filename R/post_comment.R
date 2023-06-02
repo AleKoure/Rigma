@@ -17,8 +17,7 @@
 #' `user`, `created_at`, `resolved_at`, `message`, `reactions`, `client_meta`,
 #' and `order_id`.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query req_body_form req_body_json
+#' @importFrom httr2 req_body_json
 #'
 #' @importFrom checkmate assert_string assert_list
 #'
@@ -38,29 +37,23 @@ post_comment <- function(
   comment_id = NULL,
   client_meta
 ) {
-  assert_string(file_key)
+  file_key <- set_file_key(file_key)
   assert_string(message)
   assert_string(comment_id, null.ok = TRUE)
   assert_list(client_meta)
 
-  params <- list(
-    message = message,
-    comment_id = comment_id,
-    client_meta = client_meta
-  )
-
-  resp <- request("https://api.figma.com/v1/files/") %>%
-    req_url_path_append(file_key) %>%
-    req_url_path_append("comments") %>%
-    req_body_json(params) %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("message")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma_endpoint(
+    "comments",
+    file_key = file_key
+    ) %>%
+    req_body_json(
+      data = list(
+        message = message,
+        comment_id = comment_id,
+        client_meta = client_meta
+      )
+    ) %>%
+    figma_resp()
 
   structure(
     list(

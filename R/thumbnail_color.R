@@ -10,7 +10,9 @@
 #'
 #' @importFrom png readPNG
 #'
-#' @importFrom purrr imap set_names invoke
+#' @importFrom purrr imap set_names
+#'
+#' @importFrom rlang exec
 #'
 #' @importFrom grDevices rgb
 #'
@@ -37,6 +39,6 @@ thumbnail_color <- function(path, hex = TRUE) {
     res
   }) %>%
     set_names("red", "green", "blue", "alpha")
-  if (hex) result <- invoke(rgb, result)
+  if (hex) result <- rlang::exec(rgb, result)
   result
 }

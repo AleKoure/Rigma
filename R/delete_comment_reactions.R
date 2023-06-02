@@ -13,10 +13,6 @@
 #' @returns S3 object of class `rigma_delete_comment_reactions`. Contains the parsed
 #' JSON response with fields `error`, `status`, and `i18n`.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query req_body_form
-#' req_method
-#'
 #' @importFrom checkmate assert_string
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
@@ -33,29 +29,19 @@ delete_comment_reactions <- function(
     comment_id,
     emoji
 ) {
-  assert_string(file_key)
+  file_key <- set_file_key(file_key)
   assert_string(comment_id)
   assert_string(emoji)
 
-  params <- list(
-    emoji = emoji
-  )
-
-  resp <- request("https://api.figma.com/v1/files/") %>%
-    req_url_path_append(file_key) %>%
-    req_url_path_append("comments") %>%
-    req_url_path_append(comment_id) %>%
-    req_url_path_append("reactions") %>%
-    req_method("DELETE") %>%
-    req_url_query(!!!params) %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("message")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma_endpoint(
+    "comment reactions",
+    file_key = file_key,
+    comment_id = comment_id,
+    method = "DELETE"
+  ) %>%
+    req_figma_query(
+      emoji = emoji
+    )
 
   structure(
     list(

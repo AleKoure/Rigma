@@ -10,8 +10,7 @@
 #' @returns S3 object of class `rigma_get_project_files`. Contains the parsed
 #' JSON response with fields `name`, and `files`.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query resp_body_html
+#' @importFrom httr2 req_error
 #'
 #' @importFrom checkmate assert_string assert_logical assert_subset
 #'
@@ -25,27 +24,28 @@
 #' }
 #'
 #' @export
-get_project_files <- function(project_id, branch_data = "false") {
+#' @importFrom httr2 resp_body_html
+#' @importFrom xml2 xml_find_all xml_text
+get_project_files <- function(project_id, branch_data = FALSE) {
+  if (is_figma_url(project_id)) {
+    project_id <- parse_url_project_id(project_id)
+  }
+
   assert_string(project_id)
-  assert_subset(branch_data, c("false", "true"))
 
-  params <- list(
-    branch_data = branch_data
-  )
-
-  resp <- request("https://api.figma.com/v1/projects/") %>%
-    req_url_path_append(project_id) %>%
-    req_url_path_append("files") %>%
-    req_url_query(!!!params) %>%
+  resp <- request_figma_endpoint(
+    "project files",
+    project_id = project_id
+    ) %>%
     req_error(body = function(resp) {
       resp %>%
-        resp_body_html() %>%
+        httr2::resp_body_html() %>%
         xml2::xml_find_all("//body/pre") %>%
         xml2::xml_text()
     }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+    req_figma_query(
+      branch_data = branch_data
+    )
 
   structure(
     list(

@@ -4,7 +4,7 @@
 \alias{get_project_files}
 \title{GET project files}
 \usage{
-get_project_files(project_id, branch_data = "false")
+get_project_files(project_id, branch_data = FALSE)
 }
 \arguments{
 \item{project_id}{string. Id of the project to list files from.}

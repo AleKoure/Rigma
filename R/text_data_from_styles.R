@@ -34,7 +34,7 @@ text_data_from_styles <- function(design_tibble) {
   file_key <- design_tibble %>%
     pull(.data$file_key) %>%
     unique()
-  assert_string(file_key)
+  file_key <- set_file_key(file_key)
   design_tibble %>%
     filter(.data$style_type == "TEXT") %>%
     pull(.data$node_id) %>%
