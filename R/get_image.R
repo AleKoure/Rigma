@@ -69,8 +69,7 @@ get_image <- function(
   assert_logical(use_absolute_bounds, null.ok = TRUE)
   assert_string(version, null.ok = TRUE)
 
-  resp <-
-    request_figma_endpoint(
+  resp <- request_figma_endpoint(
       "images",
       file_key = file_key
       ) %>%
