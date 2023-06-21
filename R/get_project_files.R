@@ -39,9 +39,9 @@ get_project_files <- function(project_id, branch_data = FALSE) {
     ) %>%
     req_error(body = function(resp) {
       resp %>%
-        httr2::resp_body_html() %>%
-        xml2::xml_find_all("//body/pre") %>%
-        xml2::xml_text()
+        resp_body_html() %>%
+        xml_find_all("//body/pre") %>%
+        xml_text()
     }) %>%
     req_figma_query(
       branch_data = branch_data

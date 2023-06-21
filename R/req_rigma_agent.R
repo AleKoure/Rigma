@@ -29,9 +29,9 @@ req_rigma_agent <- function(
   assert_string(figma_token, min.chars = 1)
 
   req %>%
-    httr2::req_headers(`X-Figma-Token` = figma_token) %>%
-    httr2::req_user_agent(user_agent) %>%
-    httr2::req_retry(
+    req_headers(`X-Figma-Token` = figma_token) %>%
+    req_user_agent(user_agent) %>%
+    req_retry(
       is_transient = ~ resp_status(.x) %in% c(429, 500),
       backoff = ~ 20,
       max_tries = 3

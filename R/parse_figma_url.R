@@ -1,9 +1,10 @@
 #' Parse a Figma URL for a file key and node ID
 #'
 #' @noRd
+#' @importFrom cli cli_abort
 parse_figma_url <- function(url, call = caller_env()) {
   if (!is_figma_url(url)) {
-    cli::cli_abort(
+    cli_abort(
       "{.arg url} must be a valid Figma URL.",
       call = call
     )
@@ -83,6 +84,7 @@ is_url <- function(x) {
 #' @param string Passed to x parameter of `regmatches()`
 #' @inheritParams base::regexpr
 #' @noRd
+#' @importFrom rlang is_null
 string_extract <- function(string, pattern, perl = TRUE) {
   if (is.na(string)) {
     return(NA_character_)
@@ -98,7 +100,7 @@ string_extract <- function(string, pattern, perl = TRUE) {
       )
     )
 
-  if (rlang::is_empty(match)) {
+  if (is_empty(match)) {
     return(NULL)
   }
 
@@ -111,7 +113,7 @@ string_extract <- function(string, pattern, perl = TRUE) {
 #' @importFrom rlang check_required is_string
 #' @importFrom cli cli_abort
 set_file_key <- function(file_key, call = caller_env()) {
-  rlang::check_required(file_key, call = call)
+  check_required(file_key, call = call)
 
   if (is_figma_url(file_key)) {
     file_key <- parse_url_file_key(file_key)
@@ -121,7 +123,7 @@ set_file_key <- function(file_key, call = caller_env()) {
     return(file_key)
   }
 
-  cli::cli_abort(
+  cli_abort(
     "{.arg file_key} must be a file key string or a valid Figma URL
       starting with {.url https://www.figma.com}",
     call = call

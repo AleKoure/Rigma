@@ -15,25 +15,25 @@ request_figma_endpoint <- function(endpoint = NULL,
                                    method = NULL,
                                    token = NULL,
                                    ...) {
-  req <- httr2::request(base_url) %>%
+  req <- request(base_url) %>%
     req_figma_template(
       endpoint = endpoint,
       template = template,
       ...
     ) %>%
-    httr2::req_error(
+    req_error(
       body = function(resp) {
-        body <- httr2::resp_body_json(resp)
+        body <- resp_body_json(resp)
         body[["message"]] %||% body[["err"]]
       }
     ) %>%
     req_rigma_agent(token = token)
 
-  if (rlang::is_null(method)) {
+  if (is_null(method)) {
     return(req)
   }
 
-  req %>% httr2::req_method(method)
+  req %>% req_method(method)
 }
 
 #' Set the API URL template based on the specified endpoint
@@ -41,7 +41,8 @@ request_figma_endpoint <- function(endpoint = NULL,
 #' @param endpoint Figma REST API end point to use
 #' @keywords internal
 #' @inheritParams rlang::args_error_context
-#' @importFrom rlang caller_env arg_match
+#' @importFrom rlang arg_match
+#' @importFrom httr2 req_template
 req_figma_template <- function(req,
                                endpoint = c("file", "file nodes", "images",
                                             "image fills", "versions", "users",
@@ -53,9 +54,9 @@ req_figma_template <- function(req,
                                             "team styles", "file styles", "style"),
                                template = NULL,
                                ...,
-                               call = rlang::caller_env()) {
+                               call = caller_env()) {
 
-  endpoint <- rlang::arg_match(endpoint, error_call = call)
+  endpoint <- arg_match(endpoint, error_call = call)
 
   template <- template %||%
     switch(endpoint,
@@ -80,5 +81,5 @@ req_figma_template <- function(req,
     "style" = "/v1/styles/{key}"
   )
 
-  httr2::req_template(req, template = template, ...)
+  req_template(req, template = template, ...)
 }

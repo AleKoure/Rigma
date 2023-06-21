@@ -4,7 +4,7 @@
 #' @importFrom httr2 req_url_query
 req_figma_query <- function(.req, ..., call = caller_env()) {
   .req %>%
-    httr2::req_url_query(...) %>%
+    req_url_query(...) %>%
     figma_resp(call = call)
 }
 
@@ -14,6 +14,6 @@ req_figma_query <- function(.req, ..., call = caller_env()) {
 #' @importFrom httr2 req_perform resp_body_json
 figma_resp <- function(req, call = caller_env()) {
   req %>%
-    httr2::req_perform(error_call = call) %>%
-    httr2::resp_body_json()
+    req_perform(error_call = call) %>%
+    resp_body_json()
 }
