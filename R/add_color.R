@@ -15,7 +15,7 @@
 #'
 #' @importFrom withr with_tempdir
 #'
-#' @importFrom purrr pmap_dfr
+#' @importFrom purrr pmap list_rbind
 #'
 #' @importFrom glue glue
 #'
@@ -51,12 +51,13 @@ add_color.design_tibble_style <- function(design_tibble, hex = TRUE) {
 
   color_df <- with_tempdir({
     design_tibble %>%
-      pmap_dfr(function(key, thumbnail_url, ...) {
+      pmap(function(key, thumbnail_url, ...) {
         png_path <- glue("{key}.png")
         safe_download(thumbnail_url, destfile = png_path)
         color <- possibly_thumbnail_color(png_path, hex)
         list(key = key, color = color)
-      })
+      }) %>%
+      list_rbind()
   })
 
   if (isFALSE(hex)) {
