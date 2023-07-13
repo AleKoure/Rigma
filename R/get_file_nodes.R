@@ -59,20 +59,14 @@
 #' @export
 get_file_nodes <- function(
     file_key,
-    ids = NULL,
+    ids,
     version = NULL,
     depth = NULL,
     geometry = NULL,
     plugin_data = NULL
 ) {
 
-  if (is_url(file_key)) {
-    parsed_key <- parse_figma_url(file_key)
-    file_key <- parsed_key[["file_key"]]
-    ids <- ids %||% parsed_key[["node_id"]]
-  } else {
-    file_key <- set_file_key(file_key)
-  }
+  file_key <- set_file_key(file_key)
 
   assert_string(version, null.ok = TRUE)
   assert_character(ids, null.ok = TRUE)

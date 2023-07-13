@@ -39,8 +39,17 @@ post_comment <- function(
 ) {
   file_key <- set_file_key(file_key)
   assert_string(message)
-  assert_string(comment_id, null.ok = TRUE)
   assert_list(client_meta)
+
+  data <- list(
+    message = message,
+    client_meta = client_meta
+  )
+
+  if (!is_null(comment_id)) {
+    assert_string(comment_id)
+    data <- c(data, list(comment_id = comment_id))
+  }
 
   resp <- request_figma() %>%
     req_figma_template(
@@ -48,11 +57,7 @@ post_comment <- function(
       file_key = file_key
     )
     req_body_json(
-      data = list(
-        message = message,
-        comment_id = comment_id,
-        client_meta = client_meta
-      )
+      data = data
     ) %>%
       req_figma_perform()
 

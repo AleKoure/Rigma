@@ -6,7 +6,7 @@
 \usage{
 get_file_nodes(
   file_key,
-  ids = NULL,
+  ids,
   version = NULL,
   depth = NULL,
   geometry = NULL,

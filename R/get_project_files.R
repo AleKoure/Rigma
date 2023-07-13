@@ -27,9 +27,6 @@
 #' @importFrom httr2 resp_body_html
 #' @importFrom xml2 xml_find_all xml_text
 get_project_files <- function(project_id, branch_data = FALSE) {
-  if (is_figma_url(project_id)) {
-    project_id <- parse_url_project_id(project_id)
-  }
 
   assert_string(project_id)
 
