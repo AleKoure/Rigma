@@ -2,6 +2,6 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @import rlang `%||%` caller_env
+#' @importFrom rlang caller_env %||%
 ## usethis namespace: end
 NULL

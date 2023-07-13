@@ -15,6 +15,6 @@ lhs \%>\% rhs
 The result of calling `rhs(lhs)`.
 }
 \description{
-See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
+See `magrittr::[\%>\%][magrittr::pipe]` for details.
 }
 \keyword{internal}

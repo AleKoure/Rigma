@@ -13,7 +13,7 @@ req_figma_query <- function(.req, ..., .perform = TRUE, call = caller_env()) {
   .req
 }
 
-#' Pprform a request and return the JSON body response
+#' Perform a request and return the JSON body response
 #'
 #' @noRd
 #' @importFrom httr2 req_perform resp_body_json

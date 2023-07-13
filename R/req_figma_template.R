@@ -3,7 +3,7 @@
 #' Modify a request using a template for a specified Figma API endpoint.
 #'
 #' @param endpoint Figma REST API endpoint to use
-#' @inheritParams req_template
+#' @inheritParams httr2::req_template
 #' @inheritParams rlang::args_error_context
 #' @keywords internal
 #' @importFrom rlang arg_match
