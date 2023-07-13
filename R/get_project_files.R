@@ -33,9 +33,10 @@ get_project_files <- function(project_id, branch_data = FALSE) {
 
   assert_string(project_id)
 
-  resp <- request_figma_endpoint(
-    "project files",
-    project_id = project_id
+  resp <- request_figma() %>%
+    req_figma_template(
+      "project files",
+      project_id = project_id
     ) %>%
     req_error(body = function(resp) {
       resp %>%

@@ -40,10 +40,11 @@ get_team_component_sets <- function(
   assert_number(after, null.ok = TRUE)
   assert_number(before, null.ok = TRUE)
 
-  resp <- request_figma_endpoint(
-    "team component sets",
-    team_id = team_id
-  ) %>%
+  resp <- request_figma() %>%
+    req_figma_template(
+      "team component sets",
+      team_id = team_id
+    )
     req_figma_query(
       page_size = page_size,
       after = after,

@@ -39,10 +39,11 @@ get_team_styles <- function(
   assert_number(after, null.ok = TRUE)
   assert_number(before, null.ok = TRUE)
 
-  resp <- request_figma_endpoint(
-    endpoint = "team styles",
-    team_id = team_id
-  ) %>%
+  resp <- request_figma() %>%
+    req_figma_template(
+      endpoint = "team styles",
+      team_id = team_id
+    ) %>%
     req_figma_query(
       page_size = page_size,
       after = after,

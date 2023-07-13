@@ -36,15 +36,16 @@ post_comment_reactions <- function(
   assert_string(comment_id)
   assert_string(emoji)
 
-  resp <- request_figma_endpoint(
-    "comment reactions",
-    file_key = file_key,
-    comment_id = comment_id
+  resp <- request_figma() %>%
+    req_figma_template(
+      "comment reactions",
+      file_key = file_key,
+      comment_id = comment_id
     ) %>%
     req_body_json(
       data = list(emoji = emoji)
       ) %>%
-    figma_resp()
+    req_figma_perform()
 
   structure(
     list(

@@ -82,9 +82,10 @@ get_file_nodes <- function(
 
   if (!is.null(ids)) ids <- paste0(ids, collapse = ",")
 
-  resp <- request_figma_endpoint(
-    "file nodes",
-    file_key = file_key
+  resp <- request_figma() %>%
+    req_figma_template(
+      "file nodes",
+      file_key = file_key
     ) %>%
     req_figma_query(
       version = version,

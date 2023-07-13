@@ -25,11 +25,12 @@
 get_team_projects <- function(team_id) {
   assert_string(team_id)
 
-  resp <- request_figma_endpoint(
-    "projects",
-    team_id = team_id
-    ) %>%
-    figma_resp()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "projects",
+      team_id = team_id,
+      .perform = TRUE
+    )
 
   structure(
     list(

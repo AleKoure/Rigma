@@ -67,9 +67,10 @@ get_file <- function(
   assert_string(plugin_data, null.ok = TRUE)
   assert_logical(branch_data, null.ok = TRUE)
 
-  resp <- request_figma_endpoint(
-    "file",
-    file_key = file_key
+  resp <- request_figma() %>%
+    req_figma_template(
+      "file",
+      file_key = file_key
     ) %>%
     req_figma_query(
       version = version,

@@ -34,11 +34,12 @@ get_comments_reactions <- function(
   assert_string(comment_id)
   assert_string(cursor, null.ok = TRUE)
 
-  resp <- request_figma_endpoint(
-    "comment reactions",
-    file_key = file_key,
-    comment_id = comment_id
-  ) %>%
+  resp <- request_figma() %>%
+    req_figma_template(
+      "comment reactions",
+      file_key = file_key,
+      comment_id = comment_id
+    ) %>%
     req_figma_query(
       cursor = cursor
     )

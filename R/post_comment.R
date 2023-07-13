@@ -42,10 +42,11 @@ post_comment <- function(
   assert_string(comment_id, null.ok = TRUE)
   assert_list(client_meta)
 
-  resp <- request_figma_endpoint(
-    "comments",
-    file_key = file_key
-    ) %>%
+  resp <- request_figma() %>%
+    req_figma_template(
+      "comments",
+      file_key = file_key
+    )
     req_body_json(
       data = list(
         message = message,
@@ -53,7 +54,7 @@ post_comment <- function(
         client_meta = client_meta
       )
     ) %>%
-    figma_resp()
+      req_figma_perform()
 
   structure(
     list(

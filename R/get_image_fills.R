@@ -27,11 +27,12 @@
 get_image_fills <- function(file_key) {
   file_key <- set_file_key(file_key)
 
-  resp <- request_figma_endpoint(
-    "image fills",
-    file_key = file_key
-    ) %>%
-    figma_resp()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "image fills",
+      file_key = file_key,
+      .perform = TRUE
+    )
 
   structure(
     list(

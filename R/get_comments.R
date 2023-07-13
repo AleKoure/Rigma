@@ -18,11 +18,12 @@
 #'
 #' @export
 get_comments <- function(file_key) {
-  resp <- request_figma_endpoint(
-    "comments",
-    file_key = set_file_key(file_key)
-    ) %>%
-    figma_resp()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "comments",
+      file_key = set_file_key(file_key),
+      .perform = TRUE
+    )
 
   structure(resp, class = "rigma_get_comments")
 }

@@ -69,10 +69,11 @@ get_image <- function(
   assert_logical(use_absolute_bounds, null.ok = TRUE)
   assert_string(version, null.ok = TRUE)
 
-  resp <- request_figma_endpoint(
+  resp <- request_figma() %>%
+    req_figma_template(
       "images",
       file_key = file_key
-      ) %>%
+    ) %>%
     req_figma_query(
       ids = ids,
       scale = scale,

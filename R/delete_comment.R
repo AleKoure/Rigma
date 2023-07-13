@@ -14,7 +14,7 @@
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
 #' \dontrun{
-#' #navigate to  file and get key from url
+#' # navigate to  file and get key from url
 #' file_key <- "sFHgQh9dL6369o5wrZHmdR"
 #' first_comment_id <- get_comments(file_key)$comments[[1]]$id
 #' delete_comment(file_key, first_comment_id)
@@ -29,13 +29,15 @@ delete_comment <- function(
   file_key <- set_file_key(file_key)
   assert_string(comment_id)
 
-  resp <- request_figma_endpoint(
-    "comments",
+  resp <- request_figma(
     method = "DELETE",
-    file_key = file_key,
-    comment_id = comment_id
   ) %>%
-    figma_resp()
+    req_figma_template(
+      endpoint = "comments",
+      file_key = file_key,
+      comment_id = comment_id
+    ) %>%
+    req_figma_perform()
 
   structure(
     list(

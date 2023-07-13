@@ -19,11 +19,12 @@
 get_component_sets <- function(key) {
   assert_string(key)
 
-  resp <- request_figma_endpoint(
-    "component sets",
-    key = key
-    ) %>%
-    figma_resp()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "component sets",
+      key = key,
+      .perform = TRUE
+    )
 
   structure(
     resp,

@@ -15,7 +15,7 @@
 #'
 #' @importFrom dplyr pull filter
 #'
-#' @importFrom purrr chuck imap_dfr
+#' @importFrom purrr chuck imap list_rbind
 #'
 #' @importFrom rlang .data
 #'
@@ -40,8 +40,9 @@ text_data_from_styles <- function(design_tibble) {
     pull(.data$node_id) %>%
     get_file_nodes(file_key, .) %>%
     chuck("nodes") %>%
-    imap_dfr(~ append(
+    map(~ append(
       list(node_id = .y, name = .x$document$name),
       .x$document$style
-    ))
+    )) %>%
+    list_rbind()
 }
