@@ -7,8 +7,6 @@
 #' @returns S3 object of class `rigma_get_file_versions`. Contains the parsed
 #' JSON response with fields `versions`, and `pagination`.
 #'
-#' @importFrom checkmate assert_string assert_integer assert_logical expect_list
-#'
 #' @importFrom purrr chuck
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""

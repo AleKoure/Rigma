@@ -11,13 +11,13 @@
 #'
 #' @returns tibble with text metadata of exported TEXT styles
 #'
-#' @importFrom checkmate assert_class assert_string
+#' @importFrom checkmate assert_class
 #'
 #' @importFrom dplyr pull filter
 #'
 #' @importFrom purrr chuck imap
 #'
-#' @importFrom rlang .data
+#' @importFrom rlang .data set_names
 #'
 #' @examples
 #' \dontrun{
@@ -47,7 +47,7 @@ text_data_from_styles <- function(design_tibble) {
         values = .x$document$style
         )
     ) %>%
-    setNames(NULL)
+    set_names(NULL)
 
   as.data.frame(do.call(rbind, nodes))
 }

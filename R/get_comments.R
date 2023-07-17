@@ -7,8 +7,6 @@
 #' @returns S3 object of class `rigma_get_comments`. Contains the parsed
 #' JSON response.
 #'
-#' @importFrom checkmate assert_string assert_integer assert_logical expect_list
-#'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
 #' \dontrun{
 #' #navigate to  file and get key from url

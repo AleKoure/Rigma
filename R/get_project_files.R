@@ -12,7 +12,7 @@
 #'
 #' @importFrom httr2 req_error
 #'
-#' @importFrom checkmate assert_string assert_logical assert_subset
+#' @importFrom checkmate assert_string assert_logical
 #'
 #' @importFrom xml2 xml_find_all xml_text
 #'
@@ -29,6 +29,7 @@
 get_project_files <- function(project_id, branch_data = FALSE) {
 
   assert_string(project_id)
+  assert_logical(branch_data)
 
   resp <- request_figma() %>%
     req_figma_template(

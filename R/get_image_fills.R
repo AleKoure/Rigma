@@ -14,8 +14,6 @@
 #' are located in the output of the GET files endpoint under the `imageRef`
 #' attribute in a Paint.
 #'
-#' @importFrom checkmate assert_string assert_integer assert_logical expect_list
-#'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
 #' \dontrun{
 #' #navigate to  file and get key from url

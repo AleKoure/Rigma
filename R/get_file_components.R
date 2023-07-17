@@ -9,8 +9,6 @@
 #' @returns S3 object of class `rigma_get_file_components`. Components are
 #' stored in the `meta` field.
 #'
-#' @importFrom checkmate assert_string
-#'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
 #' \dontrun{
 #' #navigate to team page and get id from url
