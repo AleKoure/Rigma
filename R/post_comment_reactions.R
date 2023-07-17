@@ -32,7 +32,7 @@ post_comment_reactions <- function(
     comment_id,
     emoji
 ) {
-  file_key <- set_file_key(file_key)
+  assert_file_key(file_key)
   assert_string(comment_id)
   assert_string(emoji)
 
