@@ -30,7 +30,7 @@ get_comments_reactions <- function(
     comment_id,
     cursor = NULL
 ) {
-  file_key <- set_file_key(file_key)
+  assert_file_key(file_key)
   assert_string(comment_id)
   assert_string(cursor, null.ok = TRUE)
 

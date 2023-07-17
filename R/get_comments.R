@@ -18,10 +18,12 @@
 #'
 #' @export
 get_comments <- function(file_key) {
+  assert_file_key(file_key)
+
   resp <- request_figma() %>%
     req_figma_template(
       "comments",
-      file_key = set_file_key(file_key),
+      file_key = file_key,
       .perform = TRUE
     )
 

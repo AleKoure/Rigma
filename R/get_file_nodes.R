@@ -66,7 +66,7 @@ get_file_nodes <- function(
     plugin_data = NULL
 ) {
 
-  file_key <- set_file_key(file_key)
+  assert_file_key(file_key)
 
   assert_string(version, null.ok = TRUE)
   assert_character(ids, null.ok = TRUE)

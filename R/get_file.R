@@ -59,7 +59,7 @@ get_file <- function(
     plugin_data = NULL,
     branch_data = NULL
 ) {
-  file_key <- set_file_key(file_key)
+  assert_file_key(file_key)
   assert_string(version, null.ok = TRUE)
   assert_string(ids, null.ok = TRUE)
   assert_integer(depth, null.ok = TRUE)

@@ -20,7 +20,7 @@
 #'
 #' @export
 get_file_components <- function(file_key) {
-  file_key <- set_file_key(file_key)
+  assert_file_key(file_key)
 
   resp <- request_figma() %>%
     req_figma_template(
