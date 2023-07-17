@@ -39,6 +39,6 @@ thumbnail_color <- function(path, hex = TRUE) {
     res
   }) %>%
     set_names("red", "green", "blue", "alpha")
-  if (hex) result <- exec(rgb, result)
+  if (hex) result <- exec(rgb, !!!result)
   result
 }
