@@ -52,7 +52,7 @@
 #' @export
 get_image <- function(
   file_key,
-  ids = NULL,
+  ids,
   scale = NULL,
   format = NULL,
   svg_include_id = NULL,
