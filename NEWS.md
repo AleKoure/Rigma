@@ -1,3 +1,13 @@
+# Rigma (development)
+
+* Remove deprecated `purrr::imap_dfr()` and `purrr::pmap_dfr()` functions (#13).
+
+* Migrate documentation to Markdown formatting (#12).
+
+* Refactor to use internal wrapper function for `httr2::req_template()`.
+
+* Allow user to set name of environmental variable for token with `Rigma.figma_token` option.
+
 # Rigma 0.2.1
 
 ## New methods

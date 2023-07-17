@@ -15,8 +15,8 @@ delete_comment_reactions(file_key, comment_id, emoji)
 :eyes:, :heart_eyes:, :heavy_plus_sign:, :+1:, :-1:, :joy: and :fire:}
 }
 \value{
-S3 object of class `rigma_delete_comment_reactions`. Contains the parsed
-JSON response with fields `error`, `status`, and `i18n`.
+S3 object of class \code{rigma_delete_comment_reactions}. Contains the parsed
+JSON response with fields \code{error}, \code{status}, and \code{i18n}.
 }
 \description{
 Removes a particular comment reaction. The only person with

@@ -9,9 +9,9 @@ request_figma(base_url = "https://api.figma.com", method = NULL, token = NULL)
 \arguments{
 \item{method}{Custom HTTP method}
 
-\item{token}{Figma API access token. If `NULL`, replace with environment variable named "FIGMA_ACCESS_TOKEN" or an alternate name set using the variable "Rigma.figma_token".}
+\item{token}{Figma API access token. If \code{NULL}, replace with environment variable named "FIGMA_ACCESS_TOKEN" or an alternate name set using the variable "Rigma.figma_token".}
 
-\item{name}{Base URL for request. Defaults to `"https://api.figma.com"`}
+\item{name}{Base URL for request. Defaults to \code{"https://api.figma.com"}}
 
 \item{...}{
   Arguments passed on to \code{\link[httr2:req_template]{httr2::req_template}}

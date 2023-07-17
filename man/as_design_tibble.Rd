@@ -13,7 +13,7 @@ as_design_tibble(rigma_resp, message = TRUE)
 }
 \value{
 tibble data extracted from Figma response objects. Subclasses
-of type `design_tibble` are added to the resulting tibbles.
+of type \code{design_tibble} are added to the resulting tibbles.
 }
 \description{
 Transforms data returned from a Figma API request to tabular

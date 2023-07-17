@@ -12,7 +12,7 @@ get_image_fills(file_key)
 \value{
 This API provides a mapping from image references to download URLs
 for the images. Image URLs have a 14-day maximum lifespan. Image references
-are located in the output of the GET files endpoint under the `imageRef`
+are located in the output of the GET files endpoint under the \code{imageRef}
 attribute in a Paint.
 }
 \description{

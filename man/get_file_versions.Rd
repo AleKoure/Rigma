@@ -10,8 +10,8 @@ get_file_versions(file_key)
 \item{file_key}{string. The key that a Figma file is referred by.}
 }
 \value{
-S3 object of class `rigma_get_file_versions`. Contains the parsed
-JSON response with fields `versions`, and `pagination`.
+S3 object of class \code{rigma_get_file_versions}. Contains the parsed
+JSON response with fields \code{versions}, and \code{pagination}.
 }
 \description{
 A list of the versions of a file.

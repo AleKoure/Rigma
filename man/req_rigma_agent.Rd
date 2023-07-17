@@ -13,7 +13,7 @@ req_rigma_agent(
 \arguments{
 \item{req}{httr2_request object}
 
-\item{token}{Figma API access token. If `NULL`, replace with environment variable named "FIGMA_ACCESS_TOKEN" or an alternate name set using the variable "Rigma.figma_token".}
+\item{token}{Figma API access token. If \code{NULL}, replace with environment variable named "FIGMA_ACCESS_TOKEN" or an alternate name set using the variable "Rigma.figma_token".}
 
 \item{user_agent}{string with user agent. Defaults to "Rigma https://github.com/AleKoure/Rigma"}
 }

@@ -36,12 +36,12 @@ word "shared." The result's 'pluginData' and 'sharedPluginData' attributes
 will contain any data existing in the document created by those plugins.}
 }
 \value{
-S3 object of the type `rigma_get_file_nodes`.
+S3 object of the type \code{rigma_get_file_nodes}.
 
-The supplied file's metadata includes the `name`, `lastModified`,
-`thumbnailUrl`, `editorType`, and `version` attributes.
+The supplied file's metadata includes the \code{name}, \code{lastModified},
+\code{thumbnailUrl}, \code{editorType}, and \code{version} attributes.
 
-The file link share permission level is described in the `linkAccess` field.
+The file link share permission level is described in the \code{linkAccess} field.
 A shared link may have one of five different permissions: "inherit," "view,"
 "edit," "org view," and "org edit." The default permission for files
 produced in a team project is "inherit," and those files will take on the
@@ -49,7 +49,7 @@ project's rights by default. "org view" and "org edit" only allow org users
 to access the link.
 
 Each node has the ability to inherit properties from applicable styles. A
-mapping from style IDs to style metadata is contained in the `styles` key.
+mapping from style IDs to style metadata is contained in the \code{styles} key.
 
 It's important to note that the nodes field is a list that can include null
 values. This can be because the provided file does not contain a node with
@@ -57,7 +57,7 @@ the specified id.
 }
 \description{
 Returns a JSON object containing the nodes referenced by
-`:ids`. The Figma file referred to by `:key` is where the nodes are located.
+\verb{:ids}. The Figma file referred to by \verb{:key} is where the nodes are located.
 The node Id and file key can be parsed from any Figma node url:
 https://www.figma.com/file/:key/:title?node-id=:id.
 }

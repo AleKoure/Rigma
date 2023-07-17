@@ -9,7 +9,7 @@ thumbnail_color(path, hex = TRUE)
 \arguments{
 \item{path}{string. Path to the thumbnail PNG}
 
-\item{hex}{logical. If `TRUE` then the RGBA values are converted to hex}
+\item{hex}{logical. If \code{TRUE} then the RGBA values are converted to hex}
 }
 \value{
 The color of the thumbnail in hex or rgba
@@ -19,7 +19,7 @@ Find thumbnail color
 }
 \details{
 Given a mono-colored thumbnail this function extracts the RGBA
-channels and returns a vector scaled from [0, 1] or a hex color code.
+channels and returns a vector scaled from \link{0, 1} or a hex color code.
 }
 \examples{
 path <- system.file("extdata", "test_thumbnail.png", package = "Rigma")
