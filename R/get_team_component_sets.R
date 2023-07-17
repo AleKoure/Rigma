@@ -44,7 +44,7 @@ get_team_component_sets <- function(
     req_figma_template(
       "team component sets",
       team_id = team_id
-    )
+    ) %>%
     req_figma_query(
       page_size = page_size,
       after = after,

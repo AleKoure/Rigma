@@ -55,11 +55,11 @@ post_comment <- function(
     req_figma_template(
       "comments",
       file_key = file_key
-    )
+    ) %>%
     req_body_json(
       data = data
     ) %>%
-      req_figma_perform()
+    req_figma_perform()
 
   structure(
     list(
