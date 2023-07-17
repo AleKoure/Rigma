@@ -55,7 +55,7 @@ as_design_tibble.rigma_get_file_styles <- function(
 
   rigma_resp %>%
     chuck("meta", "styles") %>%
-    map(~{.x %>% as_tibble()}) %>%
+    map(~ {.x %>% as_tibble()}) %>%
     list_rbind() %>%
     nest(user_data = "user") %>%
     mutate(
