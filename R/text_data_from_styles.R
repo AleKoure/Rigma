@@ -40,7 +40,7 @@ text_data_from_styles <- function(design_tibble) {
     pull(.data$node_id) %>%
     get_file_nodes(file_key, .) %>%
     chuck("nodes") %>%
-    map(~ append(
+    imap(~ append(
       list(node_id = .y, name = .x$document$name),
       .x$document$style
     )) %>%
