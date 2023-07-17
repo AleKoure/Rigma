@@ -15,7 +15,7 @@
 #'
 #' @importFrom dplyr pull filter
 #'
-#' @importFrom purrr chuck imap list_rbind
+#' @importFrom purrr chuck imap
 #'
 #' @importFrom rlang .data
 #'
@@ -35,14 +35,19 @@ text_data_from_styles <- function(design_tibble) {
     pull(.data$file_key) %>%
     unique()
   assert_file_key(file_key)
-  design_tibble %>%
+  node_id <- design_tibble %>%
     filter(.data$style_type == "TEXT") %>%
-    pull(.data$node_id) %>%
-    get_file_nodes(file_key, .) %>%
+    pull(.data$node_id)
+
+  nodes <- get_file_nodes(file_key, ids = node_id) %>%
     chuck("nodes") %>%
-    imap(~ append(
-      list(node_id = .y, name = .x$document$name),
-      .x$document$style
-    )) %>%
-    list_rbind()
+    imap(
+      ~ append(
+        list(node_id = .y, name = .x$document$name),
+        values = .x$document$style
+        )
+    ) %>%
+    setNames(NULL)
+
+  as.data.frame(do.call(rbind, nodes))
 }
