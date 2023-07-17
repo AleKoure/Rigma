@@ -37,7 +37,7 @@ post_comment <- function(
   comment_id = NULL,
   client_meta
 ) {
-  file_key <- set_file_key(file_key)
+  assert_file_key(file_key)
   assert_string(message)
   assert_list(client_meta)
 
