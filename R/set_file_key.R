@@ -11,15 +11,13 @@ is_figma_file_key <- function(x) {
 #' @noRd
 #' @importFrom rlang check_required is_string
 #' @importFrom cli cli_abort
-set_file_key <- function(file_key, call = caller_env()) {
+assert_file_key <- function(file_key, call = caller_env()) {
   check_required(file_key, call = call)
 
-  if (is_figma_file_key(file_key)) {
-    return(file_key)
+  if (!is_figma_file_key(file_key)) {
+    cli_abort(
+      "{.arg file_key} must be a file key string.",
+      call = call
+    )
   }
-
-  cli_abort(
-    "{.arg file_key} must be a file key string.",
-    call = call
-  )
 }
