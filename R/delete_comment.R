@@ -26,7 +26,7 @@ delete_comment <- function(
     comment_id
 ) {
 
-  file_key <- set_file_key(file_key)
+  assert_file_key(file_key)
   assert_string(comment_id)
 
   resp <- request_figma(
