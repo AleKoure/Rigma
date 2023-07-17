@@ -60,7 +60,7 @@ get_image <- function(
   use_absolute_bounds = NULL,
   version = NULL
 ) {
-  file_key <- set_file_key(file_key)
+  assert_file_key(file_key)
   assert_string(ids)
   assert_numeric(scale, null.ok = TRUE)
   assert_string(format, null.ok = TRUE)
