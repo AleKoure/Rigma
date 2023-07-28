@@ -1,7 +1,7 @@
 #' Find thumbnail color
 #'
 #' @details Given a mono-colored thumbnail this function extracts the RGBA
-#' channels and returns a vector scaled from [0, 1] or a hex color code.
+#' channels and returns a vector scaled from `[0, 1]` or a hex color code.
 #'
 #' @param path string. Path to the thumbnail PNG
 #' @param hex logical. If `TRUE` then the RGBA values are converted to hex

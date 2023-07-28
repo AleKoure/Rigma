@@ -19,7 +19,7 @@ Find thumbnail color
 }
 \details{
 Given a mono-colored thumbnail this function extracts the RGBA
-channels and returns a vector scaled from \link{0, 1} or a hex color code.
+channels and returns a vector scaled from \verb{[0, 1]} or a hex color code.
 }
 \examples{
 path <- system.file("extdata", "test_thumbnail.png", package = "Rigma")

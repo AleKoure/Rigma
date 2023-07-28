@@ -12,7 +12,7 @@
 #'
 #' @importFrom dplyr as_tibble mutate
 #'
-#' @importFrom purrr chuck map list_rbind list_modify
+#' @importFrom purrr chuck map_dfr list_modify
 #'
 #' @importFrom lubridate as_datetime
 #'
@@ -53,10 +53,9 @@ as_design_tibble.rigma_get_file_styles <- function(
 ) {
   if (isTRUE(message)) message("Nesting user data")
 
-  rigma_resp %>%
+  rigma_resp <- rigma_resp %>%
     chuck("meta", "styles") %>%
-    map(~ {.x %>% as_tibble()}) %>%
-    list_rbind() %>%
+    map_dfr(~ {.x %>% as_tibble()}) %>%
     nest(user_data = "user") %>%
     mutate(
       created_at = as_datetime(.data$created_at),

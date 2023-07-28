@@ -1,7 +1,5 @@
 # Rigma (development)
 
-* Remove deprecated `purrr::imap_dfr()` and `purrr::pmap_dfr()` functions (#13).
-
 * Migrate documentation to Markdown formatting (#12).
 
 * Refactor to use internal wrapper function for `httr2::req_template()`.
