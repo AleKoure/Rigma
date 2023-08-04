@@ -43,8 +43,8 @@ text_data_from_styles <- function(design_tibble) {
     chuck("nodes") %>%
     imap_dfr(
       ~ append(
-        list(node_id = .y, name = .x$document$name),
-        values = .x$document$style
+          list(node_id = .y, name = .x$document$name),
+          values = .x$document$style
         )
     )
 }
