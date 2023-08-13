@@ -10,14 +10,14 @@
 #' @param emoji string. The emoji type of reaction to delete as a string enum
 #' :eyes:, :heart_eyes:, :heavy_plus_sign:, :+1:, :-1:, :joy: and :fire:
 #'
-#' @returns S3 object of class `rigma_delete_comment_reactions`. Contains the parsed
-#' JSON response with fields `error`, `status`, and `i18n`.
+#' @returns S3 object of class `rigma_delete_comment_reactions`. Contains the
+#'   parsed JSON response with fields `error`, `status`, and `i18n`.
 #'
 #' @importFrom checkmate assert_string
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
 #' \dontrun{
-#' #navigate to  file and get key from url
+#' # navigate to  file and get key from url
 #' file_key <- "sFHgQh9dL6369o5wrZHmdR"
 #' first_comment_id <- get_comments(file_key)$comments[[1]]$id
 #' delete_comment_reactions(file_key, first_comment_id, ":eyes:")

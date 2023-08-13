@@ -61,7 +61,7 @@ add_color.design_tibble_style <- function(design_tibble, hex = TRUE) {
 
   if (isFALSE(hex)) {
     color_df <- color_df %>%
-      group_nest(.data$key, .key = 'color')
+      group_nest(.data$key, .key = "color")
   }
 
   left_join(design_tibble, color_df, by = "key")

@@ -8,6 +8,7 @@ is_figma_file_key <- function(x) {
 
 #' Return a file key or error if not provided
 #'
+#' @name assert_file_key
 #' @noRd
 #' @importFrom rlang check_required is_string
 #' @importFrom cli cli_abort

@@ -4,8 +4,11 @@
 #' performing the request.
 #'
 #' @param req httr2_request object
-#' @param token Figma API access token. If `NULL`, replace with environment variable named "FIGMA_ACCESS_TOKEN" or an alternate name set using the variable "Rigma.figma_token".
-#' @param user_agent string with user agent. Defaults to "Rigma https://github.com/AleKoure/Rigma"
+#' @param token Figma API access token. If `NULL`, replace with environment
+#'   variable named "FIGMA_ACCESS_TOKEN" or an alternate name set using the
+#'   variable "Rigma.figma_token".
+#' @param user_agent string with user agent. Defaults to "Rigma
+#'   https://github.com/AleKoure/Rigma"
 #' @keywords internal
 #'
 #' @importFrom httr2 req_headers req_user_agent req_retry resp_status

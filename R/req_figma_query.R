@@ -1,4 +1,5 @@
-#' Add a query to a request, perform the request and return the JSON body response
+#' Add a query to a request, perform the request and return the JSON body
+#' response
 #'
 #' @noRd
 #' @importFrom httr2 req_url_query
