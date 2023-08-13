@@ -39,12 +39,12 @@ text_data_from_styles <- function(design_tibble) {
     filter(.data$style_type == "TEXT") %>%
     pull(.data$node_id)
 
-  nodes <- get_file_nodes(file_key, ids = node_id) %>%
+  get_file_nodes(file_key, ids = node_id) %>%
     chuck("nodes") %>%
     imap_dfr(
       ~ append(
         list(node_id = .y, name = .x$document$name),
         values = .x$document$style
-        )
+      )
     )
 }

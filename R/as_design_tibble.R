@@ -53,9 +53,9 @@ as_design_tibble.rigma_get_file_styles <- function(
 ) {
   if (isTRUE(message)) message("Nesting user data")
 
-  rigma_resp <- rigma_resp %>%
+  rigma_resp %>%
     chuck("meta", "styles") %>%
-    map_dfr(~ {.x %>% as_tibble()}) %>%
+    map_dfr(as_tibble) %>%
     nest(user_data = "user") %>%
     mutate(
       created_at = as_datetime(.data$created_at),
