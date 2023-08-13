@@ -1,27 +1,25 @@
-Package: Rigma
 Type: Package
+Package: Rigma
 Title: Access to the 'Figma' API
 Version: 0.3.9000
 Authors@R: c(
- person("Alexandros", "Kouretsis", email = "alexandros@appsilon.com", role = c("aut", "cre")),
- person("Eli", "Pousson", , "eli.pousson@gmail.com", role = c("aut"),
+    person("Alexandros", "Kouretsis", , "alexandros@appsilon.com", role = c("aut", "cre")),
+    person("Eli", "Pousson", , "eli.pousson@gmail.com", role = "aut",
            comment = c(ORCID = "0000-0001-8280-1706"))
- )
+  )
 Maintainer: Alexandros Kouretsis <alexandros@appsilon.com>
-Description: The goal of Rigma is to provide a user friendly client to the 'Figma'
- API <https://www.figma.com/developers/api>. It uses the latest `httr2` for a 
- stable interface with the REST API. More than 20 methods are provided to 
- interact with 'Figma' files, and teams. Get design data into R by reading 
- published components and styles, converting and downloading images, getting 
- access to the full 'Figma' file as a hierarchical data structure, and much 
- more. Enhance your creativity and streamline the application development by
- automating the extraction, transformation, and loading of design data to your 
- applications and 'HTML' documents.
+Description: The goal of Rigma is to provide a user friendly client to the
+    'Figma' API <https://www.figma.com/developers/api>. It uses the latest
+    `httr2` for a stable interface with the REST API. More than 20 methods
+    are provided to interact with 'Figma' files, and teams. Get design
+    data into R by reading published components and styles, converting and
+    downloading images, getting access to the full 'Figma' file as a
+    hierarchical data structure, and much more. Enhance your creativity
+    and streamline the application development by automating the
+    extraction, transformation, and loading of design data to your
+    applications and 'HTML' documents.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
 URL: https://github.com/AleKoure/Rigma
-RoxygenNote: 7.2.3
 Imports: 
     bslib,
     checkmate,
@@ -29,7 +27,7 @@ Imports:
     dplyr,
     fs,
     glue,
-    httr2,
+    httr2 (>= 0.2.3),
     lubridate,
     magrittr,
     png,
@@ -45,6 +43,10 @@ Suggests:
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
+VignetteBuilder: 
+    knitr
 Config/testthat/edition: 3
-VignetteBuilder: knitr
+Encoding: UTF-8
+LazyData: true
 Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
