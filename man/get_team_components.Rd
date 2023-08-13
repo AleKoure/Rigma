@@ -13,7 +13,7 @@ get_team_components(team_id, page_size = 30, after = NULL, before = NULL)
 Defaults to 30.}
 
 \item{after}{number. Cursor providing the id for which to begin component
-retrieval. Exclusive with `before` parameter. The cursor value is a
+retrieval. Exclusive with \code{before} parameter. The cursor value is a
 tracked integer that is kept internally but has no Ids.}
 
 \item{before}{number. The id before which to begin obtaining components is
@@ -21,8 +21,8 @@ shown by the cursor. Exclusive with after The cursor value is a tracked
 integer that is kept internally but has no Ids.}
 }
 \value{
-S3 object of class `rigma_get_team_components`. Components are
-stored in the `meta` field.
+S3 object of class \code{rigma_get_team_components}. Components are
+stored in the \code{meta} field.
 }
 \description{
 Get a paginated list of published components within a team

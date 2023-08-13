@@ -37,9 +37,6 @@
 #' @returns S3 object of class `rigma_get_image`. Contains the parsed
 #' JSON response with fields `err`, and `images`.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query req_error
-#'
 #' @importFrom  checkmate assert_string assert_integer assert_logical
 #' assert_numeric
 #'
@@ -63,7 +60,7 @@ get_image <- function(
   use_absolute_bounds = NULL,
   version = NULL
 ) {
-  assert_string(file_key)
+  assert_file_key(file_key)
   assert_string(ids)
   assert_numeric(scale, null.ok = TRUE)
   assert_string(format, null.ok = TRUE)
@@ -72,27 +69,20 @@ get_image <- function(
   assert_logical(use_absolute_bounds, null.ok = TRUE)
   assert_string(version, null.ok = TRUE)
 
-  params <- list(
-    ids = ids,
-    scale = scale,
-    format = format,
-    svg_include_id = svg_include_id,
-    svg_simplify_stroke = svg_simplify_stroke,
-    use_absolute_bounds = use_absolute_bounds,
-    version = version
-  )
-
-  resp <- request("https://api.figma.com/v1/images") %>%
-    req_url_path_append(file_key) %>%
-    req_url_query(!!!params) %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("err")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "images",
+      file_key = file_key
+    ) %>%
+    req_figma_query(
+      ids = ids,
+      scale = scale,
+      format = format,
+      svg_include_id = svg_include_id,
+      svg_simplify_stroke = svg_simplify_stroke,
+      use_absolute_bounds = use_absolute_bounds,
+      version = version
+    )
 
   structure(
     list(

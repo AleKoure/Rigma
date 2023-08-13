@@ -10,7 +10,7 @@ get_comments(file_key)
 \item{file_key}{string. The key that a Figma file is referred by.}
 }
 \value{
-S3 object of class `rigma_get_comments`. Contains the parsed
+S3 object of class \code{rigma_get_comments}. Contains the parsed
 JSON response.
 }
 \description{

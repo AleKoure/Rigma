@@ -14,8 +14,7 @@
 #' @returns S3 object of class `rigma_post_comment_reactions`. Contains the parsed
 #' JSON response with fields `error`, `status`, and `i18n`.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query req_body_form req_body_json req_method
+#' @importFrom httr2 resp_body_json
 #'
 #' @importFrom checkmate assert_string
 #'
@@ -33,25 +32,20 @@ post_comment_reactions <- function(
     comment_id,
     emoji
 ) {
-  assert_string(file_key)
+  assert_file_key(file_key)
   assert_string(comment_id)
   assert_string(emoji)
 
-  resp <- request("https://api.figma.com/v1/files/") %>%
-    req_url_path_append(file_key) %>%
-    req_url_path_append("comments") %>%
-    req_url_path_append(comment_id) %>%
-    req_url_path_append("reactions") %>%
-    req_method("POST") %>%
-    req_body_json(list(emoji = emoji)) %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("message")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "comment reactions",
+      file_key = file_key,
+      comment_id = comment_id
+    ) %>%
+    req_body_json(
+      data = list(emoji = emoji)
+      ) %>%
+    req_figma_perform()
 
   structure(
     list(

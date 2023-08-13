@@ -3,7 +3,10 @@ Type: Package
 Title: Access to the 'Figma' API
 Version: 0.3.9000
 Authors@R: c(
- person("Alexandros", "Kouretsis", email = "alexandros@appsilon.com", role = c("aut", "cre")))
+ person("Alexandros", "Kouretsis", email = "alexandros@appsilon.com", role = c("aut", "cre")),
+ person("Eli", "Pousson", , "eli.pousson@gmail.com", role = c("aut"),
+           comment = c(ORCID = "0000-0001-8280-1706"))
+ )
 Maintainer: Alexandros Kouretsis <alexandros@appsilon.com>
 Description: The goal of Rigma is to provide a user friendly client to the 'Figma'
  API <https://www.figma.com/developers/api>. It uses the latest `httr2` for a 
@@ -18,10 +21,11 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/AleKoure/Rigma
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports: 
     bslib,
     checkmate,
+    cli,
     dplyr,
     fs,
     glue,
@@ -43,3 +47,4 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)

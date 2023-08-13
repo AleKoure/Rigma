@@ -51,6 +51,7 @@ extract_bslib_palette <- function(design_tibble, version = 5) {
     select("name", "color")
 
   pmap(resp_hl_colors, ~ .y) %>%
-    set_names(resp_hl_colors %>% pull("name")) %>%
+    set_names(resp_hl_colors %>%
+                pull("name")) %>%
     append(list(version = version))
 }
