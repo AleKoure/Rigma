@@ -28,9 +28,6 @@
     <loc>/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/Rigma-package.html</loc>
-  </url>
-  <url>
     <loc>/reference/add_color.html</loc>
   </url>
   <url>
@@ -112,13 +109,7 @@
     <loc>/reference/post_comment_reactions.html</loc>
   </url>
   <url>
-    <loc>/reference/req_figma_template.html</loc>
-  </url>
-  <url>
     <loc>/reference/req_rigma_agent.html</loc>
-  </url>
-  <url>
-    <loc>/reference/request_figma.html</loc>
   </url>
   <url>
     <loc>/reference/safe_download.html</loc>

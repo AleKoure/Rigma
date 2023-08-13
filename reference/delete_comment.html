@@ -78,15 +78,15 @@ comment is allowed to delete it.</p>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>S3 object of class <code>rigma_delete_comment</code>. Contains the parsed
-JSON response with fields <code>error</code>, <code>status</code>, and <code>i18n</code>.</p>
+<p>S3 object of class `rigma_delete_comment`. Contains the parsed
+JSON response with fields `error`, `status`, and `i18n`.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># Sys.getenv("FIGMA_ACCESS_TOKEN") != ""</span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="co"># navigate to  file and get key from url</span></span></span>
+<span class="r-in"><span><span class="co">#navigate to  file and get key from url</span></span></span>
 <span class="r-in"><span><span class="va">file_key</span> <span class="op">&lt;-</span> <span class="st">"sFHgQh9dL6369o5wrZHmdR"</span></span></span>
 <span class="r-in"><span><span class="va">first_comment_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_comments.html">get_comments</a></span><span class="op">(</span><span class="va">file_key</span><span class="op">)</span><span class="op">$</span><span class="va">comments</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">id</span></span></span>
 <span class="r-in"><span><span class="fu">delete_comment</span><span class="op">(</span><span class="va">file_key</span>, <span class="va">first_comment_id</span><span class="op">)</span></span></span>
@@ -99,7 +99,7 @@ JSON response with fields <code>error</code>, <code>status</code>, and <code>i18
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Alexandros Kouretsis, Eli Pousson.</p>
+  <p></p><p>Developed by Alexandros Kouretsis.</p>
 </div>
 
 <div class="pkgdown-footer-right">
