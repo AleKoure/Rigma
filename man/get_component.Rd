@@ -10,7 +10,7 @@ get_component(key)
 \item{key}{string. The unique identifier of the component.}
 }
 \value{
-S3 object of class `rigma_get_component`.
+S3 object of class \code{rigma_get_component}.
 }
 \description{
 Get metadata on a component by key. To publish components join

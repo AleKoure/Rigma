@@ -12,9 +12,6 @@
 #' @returns S3 object of class `rigma_get_comments_reactions`. Contains the parsed
 #' JSON response with fields `reactions`, and `pagination`.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query
-#'
 #' @importFrom checkmate assert_string
 #'
 #' @importFrom purrr chuck
@@ -29,32 +26,23 @@
 #'
 #' @export
 get_comments_reactions <- function(
-  file_key,
-  comment_id,
-  cursor = NULL
+    file_key,
+    comment_id,
+    cursor = NULL
 ) {
-  assert_string(file_key)
+  assert_file_key(file_key)
   assert_string(comment_id)
   assert_string(cursor, null.ok = TRUE)
 
-  params <- list(
-    cursor = cursor
-  )
-
-  resp <- request("https://api.figma.com/v1/files/") %>%
-    req_url_path_append(file_key) %>%
-    req_url_path_append("comments") %>%
-    req_url_path_append(comment_id) %>%
-    req_url_path_append("reactions") %>%
-    req_url_query(!!!params) %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("err")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "comment reactions",
+      file_key = file_key,
+      comment_id = comment_id
+    ) %>%
+    req_figma_query(
+      cursor = cursor
+    )
 
   structure(
     list(

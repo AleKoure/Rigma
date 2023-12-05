@@ -7,9 +7,9 @@
 text_data_from_styles(design_tibble)
 }
 \arguments{
-\item{design_tibble}{S3 object of class `design_tibble_style` returned by
+\item{design_tibble}{S3 object of class \code{design_tibble_style} returned by
 queering the 'Figma' API for the published styles. Its design tibble should
-contain a unique `file_key` (map for each `file_key` if more than one
+contain a unique \code{file_key} (map for each \code{file_key} if more than one
 exist.)}
 }
 \value{

@@ -9,16 +9,16 @@ add_color(design_tibble, hex = TRUE)
 \arguments{
 \item{design_tibble}{Tabular data to be augmented with color colomn.}
 
-\item{hex}{logical. If `TRUE` hex data are added to `color` column else
-nested data for `RGBA` channels.}
+\item{hex}{logical. If \code{TRUE} hex data are added to \code{color} column else
+nested data for \code{RGBA} channels.}
 }
 \value{
-Adds color column to `design_tibble` data
+Adds color column to \code{design_tibble} data
 }
 \description{
 Extracts color for design data collected from the Figma API.
 Can convert to hex. Infered color data are added in a new column named
-as `color`.
+as \code{color}.
 }
 \examples{
 \dontrun{

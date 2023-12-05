@@ -12,9 +12,6 @@
 #' @returns S3 object of class `rigma_get_team_projects`. Contains the parsed
 #' JSON response with fields `name`, and `projects`.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query
-#'
 #' @importFrom checkmate assert_string
 #'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
@@ -28,17 +25,12 @@
 get_team_projects <- function(team_id) {
   assert_string(team_id)
 
-  resp <- request("https://api.figma.com/v1/teams/") %>%
-    req_url_path_append(team_id) %>%
-    req_url_path_append("projects") %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("message")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "projects",
+      team_id = team_id,
+      .perform = TRUE
+    )
 
   structure(
     list(

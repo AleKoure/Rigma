@@ -17,8 +17,8 @@ thus this must be a root comment.}
 :heart_eyes:, :heavy_plus_sign:, :+1:, :-1:, :joy: and :fire:}
 }
 \value{
-S3 object of class `rigma_post_comment_reactions`. Contains the parsed
-JSON response with fields `error`, `status`, and `i18n`.
+S3 object of class \code{rigma_post_comment_reactions}. Contains the parsed
+JSON response with fields \code{error}, \code{status}, and \code{i18n}.
 }
 \description{
 Posts a new comment reaction on a file comment.

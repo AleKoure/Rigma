@@ -10,8 +10,8 @@ get_file_styles(file_key)
 \item{file_key}{string. The key that a Figma file is referred by.}
 }
 \value{
-S3 object of class `rigma_get_file_styles`. Styles are
-stored in the `meta` field.
+S3 object of class \code{rigma_get_file_styles}. Styles are
+stored in the \code{meta} field.
 }
 \description{
 Get published styles in a file library by name.

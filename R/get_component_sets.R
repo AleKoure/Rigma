@@ -7,9 +7,6 @@
 #'
 #' @returns S3 object of class `rigma_get_component_set`.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query
-#'
 #' @importFrom checkmate assert_string
 #'
 #' @examples
@@ -22,11 +19,12 @@
 get_component_sets <- function(key) {
   assert_string(key)
 
-  resp <- request("https://api.figma.com/v1/component_sets/") %>%
-    req_url_path_append(key) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "component sets",
+      key = key,
+      .perform = TRUE
+    )
 
   structure(
     resp,

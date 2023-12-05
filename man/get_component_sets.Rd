@@ -10,7 +10,7 @@ get_component_sets(key)
 \item{key}{string. The unique identifier of the component.}
 }
 \value{
-S3 object of class `rigma_get_component_set`.
+S3 object of class \code{rigma_get_component_set}.
 }
 \description{
 Get metadata on a component_set by key. To publish components

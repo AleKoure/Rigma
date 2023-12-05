@@ -10,8 +10,8 @@ get_file_component_sets(file_key)
 \item{file_key}{string. Id of the team to list components from.}
 }
 \value{
-S3 object of class `rigma_get_file_component_sets`. Components are
-stored in the `meta` field.
+S3 object of class \code{rigma_get_file_component_sets}. Components are
+stored in the \code{meta} field.
 }
 \description{
 Get a list of published component_sets within a file library.

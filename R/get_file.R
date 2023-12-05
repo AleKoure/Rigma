@@ -31,9 +31,6 @@
 #' the main file. If the file has branches, the response will also contain the
 #' metadata for those branches. Standard: false.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query
-#'
 #' @importFrom checkmate assert_string assert_integer assert_logical
 #' expect_number
 #'
@@ -62,7 +59,7 @@ get_file <- function(
     plugin_data = NULL,
     branch_data = NULL
 ) {
-  assert_string(file_key)
+  assert_file_key(file_key)
   assert_string(version, null.ok = TRUE)
   assert_string(ids, null.ok = TRUE)
   assert_integer(depth, null.ok = TRUE)
@@ -70,27 +67,19 @@ get_file <- function(
   assert_string(plugin_data, null.ok = TRUE)
   assert_logical(branch_data, null.ok = TRUE)
 
-  params <- list(
-    file_key = file_key,
-    version = version,
-    ids = ids,
-    depth = depth,
-    geometry = geometry,
-    plugin_data = plugin_data,
-    branch_data = branch_data
-  )
-
-  resp <- request("https://api.figma.com/v1/files") %>%
-    req_url_path_append(file_key) %>%
-    req_url_query(!!!params) %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("err")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "file",
+      file_key = file_key
+    ) %>%
+    req_figma_query(
+      version = version,
+      ids = ids,
+      depth = depth,
+      geometry = geometry,
+      plugin_data = plugin_data,
+      branch_data = branch_data
+    )
 
   structure(
     list(

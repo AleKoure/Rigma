@@ -42,10 +42,10 @@ the main file. If the file has branches, the response will also contain the
 metadata for those branches. Standard: false.}
 }
 \value{
-S3 object of class `figma_file_resp`. Contains the parsed content,
-the path, and the API response compatible with `httr2` methods. The
-retrieved file's metadata includes the `name`, `lastModified`,
-`thumbnailUrl`, `editorType`, `linkAccess`, and `version attributes`. A Node
+S3 object of class \code{figma_file_resp}. Contains the parsed content,
+the path, and the API response compatible with \code{httr2} methods. The
+retrieved file's metadata includes the \code{name}, \code{lastModified},
+\code{thumbnailUrl}, \code{editorType}, \code{linkAccess}, and \verb{version attributes}. A Node
 with the DOCUMENT type is present in the document attribute.
 }
 \description{

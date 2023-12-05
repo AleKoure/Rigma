@@ -9,11 +9,6 @@
 #' @returns S3 object of class `rigma_get_file_components`. Components are
 #' stored in the `meta` field.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query
-#'
-#' @importFrom checkmate assert_string
-#'
 #' @examplesIf Sys.getenv("FIGMA_ACCESS_TOKEN") != ""
 #' \dontrun{
 #' #navigate to team page and get id from url
@@ -23,19 +18,14 @@
 #'
 #' @export
 get_file_components <- function(file_key) {
-  assert_string(file_key)
+  assert_file_key(file_key)
 
-  resp <- request("https://api.figma.com/v1/files/") %>%
-    req_url_path_append(file_key) %>%
-    req_url_path_append("components") %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("err")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "file components",
+      file_key = file_key,
+      .perform = TRUE
+    )
 
   structure(
     list(

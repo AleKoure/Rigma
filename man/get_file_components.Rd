@@ -10,8 +10,8 @@ get_file_components(file_key)
 \item{file_key}{string. The key that a Figma file is referred by.}
 }
 \value{
-S3 object of class `rigma_get_file_components`. Components are
-stored in the `meta` field.
+S3 object of class \code{rigma_get_file_components}. Components are
+stored in the \code{meta} field.
 }
 \description{
 Get a list of published components within a file library.

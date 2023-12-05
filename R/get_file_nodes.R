@@ -45,9 +45,6 @@
 #' values. This can be because the provided file does not contain a node with
 #' the specified id.
 #'
-#' @importFrom httr2 request req_url_path_append req_headers req_user_agent
-#' req_perform resp_body_json req_url_query
-#'
 #' @importFrom checkmate assert_string assert_integer assert_character
 #'
 #' @importFrom lubridate as_datetime
@@ -62,13 +59,15 @@
 #' @export
 get_file_nodes <- function(
     file_key,
-    ids = NULL,
+    ids,
     version = NULL,
     depth = NULL,
     geometry = NULL,
     plugin_data = NULL
 ) {
-  assert_string(file_key)
+
+  assert_file_key(file_key)
+
   assert_string(version, null.ok = TRUE)
   assert_character(ids, null.ok = TRUE)
   assert_integer(depth, null.ok = TRUE)
@@ -77,26 +76,18 @@ get_file_nodes <- function(
 
   if (!is.null(ids)) ids <- paste0(ids, collapse = ",")
 
-  params <- list(
-    version = version,
-    ids = ids,
-    depth = depth,
-    geometry = geometry,
-    plugin_data = plugin_data
-  )
-
-  resp <- request("https://api.figma.com/v1/files") %>%
-    req_url_path_append(file_key) %>%
-    req_url_path_append("nodes") %>%
-    req_url_query(!!!params) %>%
-    req_error(body = function(resp) {
-      resp %>%
-        resp_body_json() %>%
-        chuck("err")
-    }) %>%
-    req_rigma_agent %>%
-    req_perform() %>%
-    resp_body_json()
+  resp <- request_figma() %>%
+    req_figma_template(
+      "file nodes",
+      file_key = file_key
+    ) %>%
+    req_figma_query(
+      version = version,
+      ids = ids,
+      depth = depth,
+      geometry = geometry,
+      plugin_data = plugin_data
+    )
 
   structure(
     list(
