@@ -19,7 +19,8 @@ Description: The goal of Rigma is to provide a user friendly client to the
     extraction, transformation, and loading of design data to your
     applications and 'HTML' documents.
 License: MIT + file LICENSE
-URL: https://github.com/AleKoure/Rigma
+URL: https://github.com/AleKoure/Rigma, https://AleKoure.github.io/Rigma/
+BugReports: https://github.com/AleKoure/Rigma/issues
 Imports: 
     bslib,
     checkmate,
@@ -47,6 +48,7 @@ VignetteBuilder:
     knitr
 Config/testthat/edition: 3
 Encoding: UTF-8
+Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2

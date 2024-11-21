@@ -12,6 +12,8 @@ The goal of Rigma is to provide a user friendly client to the 'Figma' API \url{h
 Useful links:
 \itemize{
   \item \url{https://github.com/AleKoure/Rigma}
+  \item \url{https://AleKoure.github.io/Rigma/}
+  \item Report bugs at \url{https://github.com/AleKoure/Rigma/issues}
 }
 
 }
