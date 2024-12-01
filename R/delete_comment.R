@@ -25,7 +25,6 @@ delete_comment <- function(
     file_key,
     comment_id
 ) {
-
   assert_file_key(file_key)
   assert_string(comment_id)
 
