@@ -16,7 +16,7 @@ req_figma_template(
 )
 }
 \arguments{
-\item{.req}{A httr2 \link[httr2]{request} object.}
+\item{.req}{A \link[httr2]{request}.}
 
 \item{endpoint}{Figma REST API endpoint to use}
 
