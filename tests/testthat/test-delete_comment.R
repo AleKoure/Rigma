@@ -1,20 +1,13 @@
 test_that("DELETE comment is OK!", {
   skip_on_cran()
+
   file_key <- "sFHgQh9dL6369o5wrZHmdR"
   resp <- post_comment(
     file_key,
     message = "Delete me",
     client_meta = list(x = 0, y = 0)
   )
-  resp_delete <- rlang::try_fetch(
-    delete_comment(file_key, resp$id),
-    error = \(cnd) NULL
-  )
-
-  skip_if(
-    is.null(resp_delete),
-    "You don't have permission to access the test resources."
-  )
+  resp_delete <- delete_comment(file_key = file_key, comment_id = resp$id)
 
   expect_s3_class(resp_delete, "rigma_delete_comment")
   expect_identical(

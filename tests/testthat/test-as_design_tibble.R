@@ -9,15 +9,8 @@ test_that("as_design_tibble for file styles is OK!", {
 
 test_that("as_design_tibble for file styles is OK!", {
   skip_on_cran()
-  resp <- rlang::try_fetch(
-    get_team_styles("1168610438838663284"),
-    error = \(cnd) NULL
-  )
 
-  skip_if(
-    is.null(resp),
-    "You don't have permission to access the test resources."
-  )
+  resp <- get_team_styles("1168610438838663284")
 
   expect_message(as_design_tibble(resp), "Nesting user data")
   expect_message(as_design_tibble(resp, message = FALSE), NA)
