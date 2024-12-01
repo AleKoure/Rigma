@@ -32,7 +32,7 @@ delete_comment <- function(
     method = "DELETE",
   ) %>%
     req_figma_template(
-      endpoint = "comments",
+      endpoint = "comment delete",
       file_key = file_key,
       comment_id = comment_id
     ) %>%

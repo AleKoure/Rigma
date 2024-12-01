@@ -7,9 +7,9 @@
 req_figma_template(
   .req,
   endpoint = c("file", "file nodes", "images", "image fills", "versions", "users",
-    "comments", "comment reactions", "projects", "project files", "team components",
-    "file components", "component", "team component sets", "file component set",
-    "component set", "team styles", "file styles", "style"),
+    "comments", "comment reactions", "comment delete", "projects", "project files",
+    "team components", "file components", "component", "team component sets",
+    "file component set", "component set", "team styles", "file styles", "style"),
   .perform = FALSE,
   ...,
   call = caller_env()
