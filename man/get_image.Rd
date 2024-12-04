@@ -27,11 +27,11 @@ get_image(
 "jpg", "png", "svg", or "pdf"}
 
 \item{svg_include_id}{logical. Whether or not to give each SVG element an
-id attribute. Standard: `FALSE`}
+id attribute. Standard: \code{FALSE}}
 
 \item{svg_simplify_stroke}{logical. Whether to simplify inside/outside
-strokes and use stroke attribute if possible instead of <mask>.
-Default:  `TRUE`.}
+strokes and use stroke attribute if possible instead of \if{html}{\out{<mask>}}.
+Default:  \code{TRUE}.}
 
 \item{use_absolute_bounds}{logical. Whether the node is cropped or the area
 around it is vacant, use the node's full dimensions. To export text nodes
@@ -41,8 +41,8 @@ without cropping, use this method. Standard: false.}
 the current version of the file}
 }
 \value{
-S3 object of class `rigma_get_image`. Contains the parsed
-JSON response with fields `err`, and `images`.
+S3 object of class \code{rigma_get_image}. Contains the parsed
+JSON response with fields \code{err}, and \code{images}.
 }
 \description{
 If there are no errors, "images" will be filled with a list of

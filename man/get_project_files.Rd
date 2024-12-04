@@ -4,7 +4,7 @@
 \alias{get_project_files}
 \title{GET project files}
 \usage{
-get_project_files(project_id, branch_data = "false")
+get_project_files(project_id, branch_data = FALSE)
 }
 \arguments{
 \item{project_id}{string. Id of the project to list files from.}
@@ -13,8 +13,8 @@ get_project_files(project_id, branch_data = "false")
 main file with a branch inside the project. Default: "false"}
 }
 \value{
-S3 object of class `rigma_get_project_files`. Contains the parsed
-JSON response with fields `name`, and `files`.
+S3 object of class \code{rigma_get_project_files}. Contains the parsed
+JSON response with fields \code{name}, and \code{files}.
 }
 \description{
 List the files in a given project.

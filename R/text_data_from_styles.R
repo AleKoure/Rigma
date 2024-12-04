@@ -11,13 +11,13 @@
 #'
 #' @returns tibble with text metadata of exported TEXT styles
 #'
-#' @importFrom checkmate assert_class assert_string
+#' @importFrom checkmate assert_class
 #'
 #' @importFrom dplyr pull filter
 #'
 #' @importFrom purrr chuck imap_dfr
 #'
-#' @importFrom rlang .data
+#' @importFrom rlang .data set_names
 #'
 #' @examples
 #' \dontrun{
@@ -34,14 +34,17 @@ text_data_from_styles <- function(design_tibble) {
   file_key <- design_tibble %>%
     pull(.data$file_key) %>%
     unique()
-  assert_string(file_key)
-  design_tibble %>%
+  assert_file_key(file_key)
+  node_id <- design_tibble %>%
     filter(.data$style_type == "TEXT") %>%
-    pull(.data$node_id) %>%
-    get_file_nodes(file_key, .) %>%
+    pull(.data$node_id)
+
+  get_file_nodes(file_key, ids = node_id) %>%
     chuck("nodes") %>%
-    imap_dfr(~ append(
-      list(node_id = .y, name = .x$document$name),
-      .x$document$style
-    ))
+    imap_dfr(
+      ~ append(
+        list(node_id = .y, name = .x$document$name),
+        values = .x$document$style
+      )
+    )
 }

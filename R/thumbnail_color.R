@@ -1,7 +1,7 @@
 #' Find thumbnail color
 #'
 #' @details Given a mono-colored thumbnail this function extracts the RGBA
-#' channels and returns a vector scaled from [0, 1] or a hex color code.
+#' channels and returns a vector scaled from `[0, 1]` or a hex color code.
 #'
 #' @param path string. Path to the thumbnail PNG
 #' @param hex logical. If `TRUE` then the RGBA values are converted to hex
@@ -10,7 +10,9 @@
 #'
 #' @importFrom png readPNG
 #'
-#' @importFrom purrr imap set_names invoke
+#' @importFrom purrr imap set_names
+#'
+#' @importFrom rlang exec
 #'
 #' @importFrom grDevices rgb
 #'
@@ -37,6 +39,6 @@ thumbnail_color <- function(path, hex = TRUE) {
     res
   }) %>%
     set_names("red", "green", "blue", "alpha")
-  if (hex) result <- invoke(rgb, result)
+  if (hex) result <- exec(rgb, !!!result)
   result
 }

@@ -15,8 +15,8 @@ delete_comment_reactions(file_key, comment_id, emoji)
 :eyes:, :heart_eyes:, :heavy_plus_sign:, :+1:, :-1:, :joy: and :fire:}
 }
 \value{
-S3 object of class `rigma_delete_comment_reactions`. Contains the parsed
-JSON response with fields `error`, `status`, and `i18n`.
+S3 object of class \code{rigma_delete_comment_reactions}. Contains the
+parsed JSON response with fields \code{error}, \code{status}, and \code{i18n}.
 }
 \description{
 Removes a particular comment reaction. The only person with
@@ -25,7 +25,7 @@ the ability to delete a comment reaction is the original poster.
 \examples{
 \dontshow{if (Sys.getenv("FIGMA_ACCESS_TOKEN") != "") (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \dontrun{
-#navigate to  file and get key from url
+# navigate to  file and get key from url
 file_key <- "sFHgQh9dL6369o5wrZHmdR"
 first_comment_id <- get_comments(file_key)$comments[[1]]$id
 delete_comment_reactions(file_key, first_comment_id, ":eyes:")

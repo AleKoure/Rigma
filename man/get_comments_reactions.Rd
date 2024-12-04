@@ -15,8 +15,8 @@ get_comments_reactions(file_key, comment_id, cursor = NULL)
 cursor for pagination.}
 }
 \value{
-S3 object of class `rigma_get_comments_reactions`. Contains the parsed
-JSON response with fields `reactions`, and `pagination`.
+S3 object of class \code{rigma_get_comments_reactions}. Contains the parsed
+JSON response with fields \code{reactions}, and \code{pagination}.
 }
 \description{
 Obtains a paginated list of the comments' reactions.

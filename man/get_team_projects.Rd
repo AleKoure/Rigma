@@ -10,8 +10,8 @@ get_team_projects(team_id)
 \item{team_id}{string. Id of the team to list projects from.}
 }
 \value{
-S3 object of class `rigma_get_team_projects`. Contains the parsed
-JSON response with fields `name`, and `projects`.
+S3 object of class \code{rigma_get_team_projects}. Contains the parsed
+JSON response with fields \code{name}, and \code{projects}.
 }
 \description{
 Get a list of all the Projects inside the specified team using

@@ -7,12 +7,12 @@
 extract_bslib_palette(design_tibble, version = 5)
 }
 \arguments{
-\item{design_tibble}{A design_tibble returned bu the `add_color()` function}
+\item{design_tibble}{A design_tibble returned bu the \code{add_color()} function}
 
 \item{version}{Bootstrap version to use for extracting color variables}
 }
 \value{
-List with colors used in high level variables of `bs_theme()`.
+List with colors used in high level variables of \code{bs_theme()}.
 }
 \description{
 Extract bslib palette
