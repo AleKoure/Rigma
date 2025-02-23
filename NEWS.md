@@ -1,4 +1,4 @@
-# Rigma (development)
+# Rigma 0.3.0
 
 * Migrate documentation to Markdown formatting (#12).
 
