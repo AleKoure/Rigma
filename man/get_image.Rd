@@ -30,7 +30,7 @@ get_image(
 id attribute. Standard: \code{FALSE}}
 
 \item{svg_simplify_stroke}{logical. Whether to simplify inside/outside
-strokes and use stroke attribute if possible instead of \if{html}{\out{<mask>}}.
+strokes and use stroke attribute if possible instead of mask element.
 Default:  \code{TRUE}.}
 
 \item{use_absolute_bounds}{logical. Whether the node is cropped or the area

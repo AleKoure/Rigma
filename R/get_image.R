@@ -24,7 +24,7 @@
 #' id attribute. Standard: `FALSE`
 #'
 #' @param svg_simplify_stroke logical. Whether to simplify inside/outside
-#' strokes and use stroke attribute if possible instead of <mask>.
+#' strokes and use stroke attribute if possible instead of mask element.
 #' Default:  `TRUE`.
 #'
 #' @param use_absolute_bounds logical. Whether the node is cropped or the area
